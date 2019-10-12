@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical"
+    tools:context=".Activity3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/pistas_usadas_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15sp"
+            android:text="Pistas usadas: 0/3"
+            android:textColor="@android:color/darker_gray" />
+
+        <Button
+            android:id="@+id/hint_button"
+            android:layout_width="60sp"
+            android:layout_height="40sp"
+            android:layout_marginEnd="20sp"
+            android:text="Pista"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400sp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pregunta_actual_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="La moraleja es:"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/first_option_button"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
+            android:onClick="onButtonClick"
+            android:text="Sustantivos"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/second_option_button"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:onClick="onButtonClick"
+            android:text="Palabras o frases que indiquen tiempo"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/third_option_button"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:onClick="onButtonClick"
+            android:text="Verbos conjugados en futuro"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/fourth_option_button"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:onClick="onButtonClick"
+            android:text="Oraciones tópico"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/previous_button"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:layout_marginRight="150sp"
+            android:text="Anterior"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:text="Siguiente"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

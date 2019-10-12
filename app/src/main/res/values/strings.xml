@@ -1,0 +1,224 @@
+<resources>
+    <string name="app_name">QuizzApp Pro</string>
+
+    <string name="espanol_question_1">Para organizar los acontecimientos históricos de un relato podemos utilizar:</string>
+    <string name="espanol_question_2">Son dichos agudos y sentenciosos, de uso popular.</string>
+    <string name="espanol_question_3">Es una característica de las fábulas:</string>
+    <string name="espanol_question_4">La moraleja es:</string>
+    <string name="espanol_question_5">Son frases que se utilizan para dar a conocer un producto.</string>
+
+    <string name="game_button">Juego</string>
+    <string name="opt_button">Opciones</string>
+    <string name="sco_button">Puntuacion</string>
+
+    <string name="all_checkbox">Todos</string>
+    <string name="spanish_checkbox">Espanol</string>
+    <string name="mat_checkbox">Matemáticas</string>
+    <string name="science_checkbox">Ciencias</string>
+    <string name="history_checkbox">Historia</string>
+    <string name="geo_checkbox">Geografia</string>
+    <string name="ethic_checkbox">Cívica</string>
+
+    <string name="high_radio_button">Alta</string>
+    <string name="medium_radio_button">Media</string>
+    <string name="low_radio_button">Baja</string>
+
+
+    <string name="categoria_1">Español</string>
+
+    <string name="categoria_1_question_1">Para organizar los acontecimientos históricos de un relato podemos utilizar</string>
+    <string name="categoria_1_question_1_right_answer">Palabras o frases que indiquen tiempo</string>
+    <string name="categoria_1_question_1_opcion_1">Sustantivos</string>
+    <string name="categoria_1_question_1_opcion_2">Verbos conjugados en futuro</string>
+    <string name="categoria_1_question_1_opcion_3">Oraciones tópico</string>
+
+    <string name="categoria_1_question_2">Son dichos agudos y sentenciosos, de uso popular.</string>
+    <string name="categoria_1_question_2_right_answer">Refranes</string>
+    <string name="categoria_1_question_2_opcion_1">Poemas</string>
+    <string name="categoria_1_question_2_opcion_2">Fábulas</string>
+    <string name="categoria_1_question_2_opcion_3">Chistes</string>
+
+    <string name="categoria_1_question_3">Es una característica de las fábulas:</string>
+    <string name="categoria_1_question_3_right_answer">Señalan los defectos humanos</string>
+    <string name="categoria_1_question_3_opcion_1">Utilizar personajes fantasmagóricos</string>
+    <string name="categoria_1_question_3_opcion_2">Finalizar con una pregunta</string>
+    <string name="categoria_1_question_3_opcion_3">Explicar el origen del mundo</string>
+
+    <string name="categoria_1_question_4">La moraleja es:</string>
+    <string name="categoria_1_question_4_right_answer">La enseñanza o lección que se deduce de una fábula</string>
+    <string name="categoria_1_question_4_opcion_1">Lo que dice uno de los personajes al iniciar la fábula</string>
+    <string name="categoria_1_question_4_opcion_2">La forma en la que debemos actuar siempre</string>
+    <string name="categoria_1_question_4_opcion_3">La opinión acerca de cómo está escrita la fábula</string>
+
+    <string name="categoria_1_question_5">Son frases que se utilizan para dar a conocer un producto.</string>
+    <string name="categoria_1_question_5_right_answer">Sugestivas</string>
+    <string name="categoria_1_question_5_opcion_1">Imágenes</string>
+    <string name="categoria_1_question_5_opcion_2">Eslogan</string>
+    <string name="categoria_1_question_5_opcion_3">Términos técnicos</string>
+
+
+    <string name="categoria_2">Matemáticas</string>
+
+    <string name="categoria_2_question_1">Es un ejemplo de fracción impropia</string>
+    <string name="categoria_2_question_1_right_answer">10/5</string>
+    <string name="categoria_2_question_1_opcion_1">4 y 1/3</string>
+    <string name="categoria_2_question_1_opcion_2">4/7</string>
+    <string name="categoria_2_question_1_opcion_3">5/15</string>
+
+    <string name="categoria_2_question_2">Es la cantidad sobrante de una división</string>
+    <string name="categoria_2_question_2_right_answer">Residuo</string>
+    <string name="categoria_2_question_2_opcion_1">Factor</string>
+    <string name="categoria_2_question_2_opcion_2">Cociente</string>
+    <string name="categoria_2_question_2_opcion_3">Dividendo</string>
+
+    <string name="categoria_2_question_3">¿A cuántos mililitros es igual ½ litro?</string>
+    <string name="categoria_2_question_3_right_answer">500 mililitros</string>
+    <string name="categoria_2_question_3_opcion_1">5,000 mililitros</string>
+    <string name="categoria_2_question_3_opcion_2">200 mililitros</string>
+    <string name="categoria_2_question_3_opcion_3">100 mililitros</string>
+
+    <string name="categoria_2_question_4">¿Cuántos gramos tiene un kilogramo?</string>
+    <string name="categoria_2_question_4_right_answer">1,000 gramos</string>
+    <string name="categoria_2_question_4_opcion_1">500 gramos</string>
+    <string name="categoria_2_question_4_opcion_2">10,000 gramos</string>
+    <string name="categoria_2_question_4_opcion_3">100 gramos</string>
+
+    <string name="categoria_2_question_5">¿A qué número es equivalente el siguiente número romano: LXXVI?</string>
+    <string name="categoria_2_question_5_right_answer">76</string>
+    <string name="categoria_2_question_5_opcion_1">986</string>
+    <string name="categoria_2_question_5_opcion_2">526</string>
+    <string name="categoria_2_question_5_opcion_3">126</string>
+
+
+    <string name="categoria_3">Ciencias Naturales</string>
+
+    <string name="categoria_3_question_1">No es una característica de una dieta correcta</string>
+    <string name="categoria_3_question_1_right_answer">Limpia</string>
+    <string name="categoria_3_question_1_opcion_1">Variada</string>
+    <string name="categoria_3_question_1_opcion_2">Inocua</string>
+    <string name="categoria_3_question_1_opcion_3">Equilibrada</string>
+
+    <string name="categoria_3_question_2">Nivel de adicción caracterizado por el uso frecuente de una droga durante un periodo extenso</string>
+    <string name="categoria_3_question_2_right_answer">Abuso</string>
+    <string name="categoria_3_question_2_opcion_1">Dependencia</string>
+    <string name="categoria_3_question_2_opcion_2">Recuperación</string>
+    <string name="categoria_3_question_2_opcion_3">Uso experimental</string>
+
+    <string name="categoria_3_question_3">Única forma de saber si se tiene VIH-SIDA</string>
+    <string name="categoria_3_question_3_right_answer">Prueba de laboratorio</string>
+    <string name="categoria_3_question_3_opcion_1">Implante anticonceptivo</string>
+    <string name="categoria_3_question_3_opcion_2">Billings</string>
+    <string name="categoria_3_question_3_opcion_3">Tener contacto sexual sin protección</string>
+
+    <string name="categoria_3_question_4">No es una Infección de Transmisión Sexual</string>
+    <string name="categoria_3_question_4_right_answer">Sarcoma</string>
+    <string name="categoria_3_question_4_opcion_1">SIDA</string>
+    <string name="categoria_3_question_4_opcion_2">Sífilis</string>
+    <string name="categoria_3_question_4_opcion_3">Gonorrea</string>
+
+    <string name="categoria_3_question_5">Etapa en la que se presentan cambios en el cuerpo y en el desarrollo de los seres humanos</string>
+    <string name="categoria_3_question_5_right_answer">Pubertad</string>
+    <string name="categoria_3_question_5_opcion_1">Ovulación</string>
+    <string name="categoria_3_question_5_opcion_2">Maduración sexual</string>
+    <string name="categoria_3_question_5_opcion_3">Juventud</string>
+
+
+    <string name="categoria_4">Historis</string>
+
+    <string name="categoria_4_question_1">Puerto que fue atacado por los barcos de guerra de Estados Unidos</string>
+    <string name="categoria_4_question_1_right_answer">Veracruz</string>
+    <string name="categoria_4_question_1_opcion_1">Progreso</string>
+    <string name="categoria_4_question_1_opcion_2">Manzanillo</string>
+    <string name="categoria_4_question_1_opcion_3">Ensenada</string>
+
+    <string name="categoria_4_question_2">Lucha armada en que se combaten entre sí los habitantes de un pueblo o nación</string>
+    <string name="categoria_4_question_2_right_answer">Guerra civil</string>
+    <string name="categoria_4_question_2_opcion_1">Soberanía</string>
+    <string name="categoria_4_question_2_opcion_2">Hacienda pública</string>
+    <string name="categoria_4_question_2_opcion_3">Abolición</string>
+
+    <string name="categoria_4_question_3">País que le prestaba dinero a México durante el gobierno de Guadalupe Victoria</string>
+    <string name="categoria_4_question_3_right_answer">Inglaterra</string>
+    <string name="categoria_4_question_3_opcion_1">España</string>
+    <string name="categoria_4_question_3_opcion_2">Estados Unidos</string>
+    <string name="categoria_4_question_3_opcion_3">Francia</string>
+
+    <string name="categoria_4_question_4">Perdió la batalla de San Jacinto en 1836</string>
+    <string name="categoria_4_question_4_right_answer">Antonio López de Santa Anna</string>
+    <string name="categoria_4_question_4_opcion_1">Agustín de Iturbide</string>
+    <string name="categoria_4_question_4_opcion_2">Nicolás Bravo</string>
+    <string name="categoria_4_question_4_opcion_3">Guadalupe Victoria</string>
+
+    <string name="categoria_4_question_5">¿En qué década comienza el imperio de Iturbide</string>
+    <string name="categoria_4_question_5_right_answer">Década de los 20</string>
+    <string name="categoria_4_question_5_opcion_1">Década de los 30</string>
+    <string name="categoria_4_question_5_opcion_2">Década de los 40</string>
+    <string name="categoria_4_question_5_opcion_3">Década de los 50</string>
+
+
+    <string name="categoria_5">Geografía</string>
+
+    <string name="categoria_5_question_1">¿Qué continente tiene la mayor extensión territorial?</string>
+    <string name="categoria_5_question_1_right_answer">Asia</string>
+    <string name="categoria_5_question_1_opcion_1">Oceanía</string>
+    <string name="categoria_5_question_1_opcion_2">América</string>
+    <string name="categoria_5_question_1_opcion_3">África</string>
+
+    <string name="categoria_5_question_2">Es la distancia entre un punto cualquiera y el Ecuador</string>
+    <string name="categoria_5_question_2_right_answer">Latitud</string>
+    <string name="categoria_5_question_2_opcion_1">Longitud</string>
+    <string name="categoria_5_question_2_opcion_2">Grados</string>
+    <string name="categoria_5_question_2_opcion_3">Altitud</string>
+
+    <string name="categoria_5_question_3">Distancia vertical de un punto sobre la superficie de la tierra, que toma como referencia el nivel del mar</string>
+    <string name="categoria_5_question_3_right_answer">Altitud</string>
+    <string name="categoria_5_question_3_opcion_1">Longitud</string>
+    <string name="categoria_5_question_3_opcion_2">Eje terrestre</string>
+    <string name="categoria_5_question_3_opcion_3">Latitud</string>
+
+    <string name="categoria_5_question_4">Ejemplo de fronteras naturales</string>
+    <string name="categoria_5_question_4_right_answer">Ríos</string>
+    <string name="categoria_5_question_4_opcion_1">Murallas</string>
+    <string name="categoria_5_question_4_opcion_2">Hemisferios</string>
+    <string name="categoria_5_question_4_opcion_3">Placas tectónicas</string>
+
+    <string name="categoria_5_question_5">Son las líneas imaginarias que se extienden de un polo a otro</string>
+    <string name="categoria_5_question_5_right_answer">Meridianos</string>
+    <string name="categoria_5_question_5_opcion_1">Paralelos</string>
+    <string name="categoria_5_question_5_opcion_2">Grados</string>
+    <string name="categoria_5_question_5_opcion_3">Ecuador</string>
+
+
+    <string name="categoria_6">Formación Cívica Y Ética</string>
+
+    <string name="categoria_6_question_1">Trastorno que consiste en comer mucho y después provocarse el vómito</string>
+    <string name="categoria_6_question_1_right_answer">Bulimia</string>
+    <string name="categoria_6_question_1_opcion_1">Anorexia</string>
+    <string name="categoria_6_question_1_opcion_2">Trastorno alimentario compulsivo</string>
+    <string name="categoria_6_question_1_opcion_3">Sífilis</string>
+
+    <string name="categoria_6_question_2">Características atribuidas por una sociedad a un grupo de personas</string>
+    <string name="categoria_6_question_2_right_answer">Estereotipos</string>
+    <string name="categoria_6_question_2_opcion_1">Prejuicios</string>
+    <string name="categoria_6_question_2_opcion_2">Discriminación</string>
+    <string name="categoria_6_question_2_opcion_3">Resiliencia</string>
+
+    <string name="categoria_6_question_3">Cuando una persona muestra fortaleza ante las adversidades, se dice que es</string>
+    <string name="categoria_6_question_3_right_answer">Resiliente</string>
+    <string name="categoria_6_question_3_opcion_1">Resistente</string>
+    <string name="categoria_6_question_3_opcion_2">Ruda</string>
+    <string name="categoria_6_question_3_opcion_3">Madura</string>
+
+    <string name="categoria_6_question_4">Es una acción que contribuye a un proyecto de vida sano y seguro</string>
+    <string name="categoria_6_question_4_right_answer">Comer tranquilamente</string>
+    <string name="categoria_6_question_4_opcion_1">No desayunar</string>
+    <string name="categoria_6_question_4_opcion_2">Comer menos</string>
+    <string name="categoria_6_question_4_opcion_3">Comer más rápido</string>
+
+    <string name="categoria_6_question_5">Es cuando se menosprecia o se humilla a las personas por sus características y capacidades</string>
+    <string name="categoria_6_question_5_right_answer">Discriminación</string>
+    <string name="categoria_6_question_5_opcion_1">Procrastinación</string>
+    <string name="categoria_6_question_5_opcion_2">Diversidad</string>
+    <string name="categoria_6_question_5_opcion_3">Adversidad</string>
+
+</resources>
