@@ -60,7 +60,18 @@ class Activity2 : AppCompatActivity() {
 
         estatus = findViewById(selectRadioButton.checkedRadioButtonId)
 
+        for (x in 5..(categoriesChecked * 5)) {
+            data.add(x)
+        }
 
+        difficultySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
 
         var clues: ArrayAdapter<String> =
             ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, clue)
@@ -139,19 +150,6 @@ class Activity2 : AppCompatActivity() {
             //startActivity(intent)
 
             //startActivityForResult(intent, SCOREACTIVITY_REQUEST_CODE)
-        }
-
-        for (x in 5..(categoriesChecked * 5)) {
-            data.add(x)
-        }
-
-        difficultySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
-
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
         }
 
         checks = arrayListOf(
