@@ -204,6 +204,7 @@ class Activity2 : AppCompatActivity() {
             numberSpinner.isEnabled = true
             numberSpinner.setSelection(numPistas-1)
         }
+        difficultySpinner.setSelection(numPreguntas-5)
     }
 
     fun onCheckesClick(view: View) {
