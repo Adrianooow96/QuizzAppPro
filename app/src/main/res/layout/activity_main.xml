@@ -50,6 +50,12 @@
             android:layout_height="wrap_content"
             android:text="Puntuaciones" />
 
+        <Button
+            android:id="@+id/profiles_button"
+            android:layout_width="130sp"
+            android:layout_height="wrap_content"
+            android:text="Perfiles" />
+
 
     </LinearLayout>
 

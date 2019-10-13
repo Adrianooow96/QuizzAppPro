@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.Toast
 
+
 var listaCategorias : List<String> = listOf("Espanol", "Matemáticas", "Ciencias", "Historia", "Geografia", "Cívica")
 var numPreguntas = 18
 var dificultad : String = "Media"
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var play_button : Button
     private lateinit var options_button : Button
     private lateinit var score_button : Button
+    private lateinit var profiles_button : Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         play_button = findViewById(R.id.play_button)
         options_button = findViewById(R.id.options_button)
         score_button = findViewById(R.id.score_button)
+        profiles_button = findViewById(R.id.profiles_button)
 /*
 
 */
@@ -40,6 +43,10 @@ class MainActivity : AppCompatActivity() {
         }
         score_button.setOnClickListener() {
             val intent : Intent = Intent(this, Activity5::class.java)
+            startActivity(intent)
+        }
+        profiles_button.setOnClickListener() {
+            val intent : Intent = Intent(this, ProfilesActivity::class.java)
             startActivity(intent)
         }
 
