@@ -43,7 +43,7 @@ abstract class AppDatabase : RoomDatabase() {
         fun initializeData(db: SupportSQLiteDatabase) {
             //db.beginTransaction();
 
-            db.execSQL("INSERT INTO pregunta (id, description, payment_pct, required_credits) VALUES (0, 'Licenciatura', 100, 120)")
+            db.execSQL("INSERT INTO pregunta (idPregunta, pregunta, categoria, respuestaCorrecta, opcion1, opcion2, opcion3, respondida, respuesta, esCorrecta,usoPista) VALUES (0, 'Español', 100, 120)")
 
         }
     }
