@@ -1,11 +1,11 @@
 package com.example.quizzapppro
 
 import android.app.Activity
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 
 const val NAME_OF_PLAYER = "com.example.quizzapppro.NAME_OF_PLAYER"
 

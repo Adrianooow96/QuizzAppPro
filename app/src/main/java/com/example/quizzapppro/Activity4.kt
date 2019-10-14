@@ -1,9 +1,9 @@
 package com.example.quizzapppro
 
 import android.content.SharedPreferences
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_4.*
 
 class Activity4 : AppCompatActivity() {
