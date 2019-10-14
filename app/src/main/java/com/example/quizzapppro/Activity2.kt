@@ -2,10 +2,10 @@ package com.example.quizzapppro
 
 import android.app.Activity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 
 
 const val EXTRA_QUESTION_TEXT = "com.example.quizzapppro.EXTRA_QUESTION_TEXT"
