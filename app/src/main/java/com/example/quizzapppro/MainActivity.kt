@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.quizzapppro.bd.AppDatabase
 
 
 var listaCategorias : List<String> = listOf("Espanol", "Matemáticas", "Ciencias", "Historia", "Geografia", "Cívica")
@@ -24,14 +25,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // => Obtener referencia a base de datos basada en librería Room
+        val db = AppDatabase.getAppDatabase(this)
+
 
         play_button = findViewById(R.id.play_button)
         options_button = findViewById(R.id.options_button)
         score_button = findViewById(R.id.score_button)
         profiles_button = findViewById(R.id.profiles_button)
-/*
 
-*/
+
         play_button.setOnClickListener(){
             val intent : Intent = Intent(this, Activity3::class.java)
             startActivity(intent)
