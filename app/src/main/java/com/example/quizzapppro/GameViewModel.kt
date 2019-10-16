@@ -1,6 +1,6 @@
 package com.example.quizzapppro
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
 
