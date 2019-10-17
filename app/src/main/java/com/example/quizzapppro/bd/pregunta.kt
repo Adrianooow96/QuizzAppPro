@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 data class pregunta (
     @PrimaryKey @ColumnInfo(name = "idPregunta") val idPregunta: Int,
     @field:ColumnInfo(name = "pregunta") val description: String,
-    @field:ColumnInfo(name = "categoria") val paymentPercentage: Int,
+    @field:ColumnInfo(name = "categoria") val categoria: Int,
     @field:ColumnInfo(name = "respuestaCorrecta") var respuestaCorrecta: String,
     @field:ColumnInfo(name = "opcion1") var opcion1: String,
     @field:ColumnInfo(name = "opcion2") var opcion2: String,
