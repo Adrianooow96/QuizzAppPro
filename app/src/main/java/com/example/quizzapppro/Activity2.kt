@@ -143,7 +143,7 @@ class Activity2 : AppCompatActivity() {
             listaCategorias = emptyList()
 
 
-            perfil.totalPreguntas = difficultySpinner.selectedItem.toString().toInt()
+            //perfil.totalPreguntas = difficultySpinner.selectedItem.toString().toInt()
 
             for (x in checks){
                 if(x.isChecked){

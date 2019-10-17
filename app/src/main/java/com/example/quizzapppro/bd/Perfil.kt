@@ -5,9 +5,9 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "perfil", indices = [Index(value = ["idJugador"], unique = true)])
+@Entity(tableName = "perfil")
 data class Perfil (
-    @PrimaryKey @ColumnInfo(name = "idJugador") val idJugador: Int,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "idJugador") val idJugador: Int,
     @field:ColumnInfo(name = "nombreJugador") val nombreJugador: String,
     @field:ColumnInfo(name = "avatar") val avatar: Int,
     @field:ColumnInfo(name = "totalPreguntas") var totalPreguntas: Int,
