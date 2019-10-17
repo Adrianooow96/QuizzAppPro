@@ -13,9 +13,5 @@ data class pregunta (
     @field:ColumnInfo(name = "respuestaCorrecta") var respuestaCorrecta: String,
     @field:ColumnInfo(name = "opcion1") var opcion1: String,
     @field:ColumnInfo(name = "opcion2") var opcion2: String,
-    @field:ColumnInfo(name = "opcion3") var opcion3: String,
-    @field:ColumnInfo(name = "respondida") var respondida: Int,
-    @field:ColumnInfo(name = "respuesta") var respuesta: String,
-    @field:ColumnInfo(name = "esCorrecta") var esCorrecta: Int,
-    @field:ColumnInfo(name = "usoPista") var usoPista: Int
+    @field:ColumnInfo(name = "opcion3") var opcion3: String
 )
