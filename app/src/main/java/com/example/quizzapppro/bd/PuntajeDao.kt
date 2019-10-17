@@ -8,7 +8,8 @@ import androidx.room.Update;
 
 @Dao
 interface PuntajeDao {
-    @Query ("SELECT * FROM puntaje WHERE idPuntaje=:id")
-    fun getPuntaje(id: Int) : Puntaje
+    @Query("SELECT * FROM puntaje ORDER BY puntaje")
+    fun getAll(): List<Puntaje>
+
 
 }
