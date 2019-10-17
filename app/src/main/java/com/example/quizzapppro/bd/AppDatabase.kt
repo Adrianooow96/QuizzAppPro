@@ -16,6 +16,7 @@ import androidx.room.RoomDatabase
 
 abstract class AppDatabase : RoomDatabase() {
 
+    abstract fun perfilDao() : PerfilDao
 
     companion object {
 

@@ -9,6 +9,6 @@ import androidx.room.Update;
 @Dao
 interface JuegoDao {
     @Query ("SELECT * FROM juego WHERE idPregunta=:id")
-    fun getJuego(id: Int) : Juego
+    fun getJuegoById(id: Int) : Juego
 
 }

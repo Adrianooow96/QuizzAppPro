@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizzapppro.bd.AppDatabase
+import com.example.quizzapppro.bd.Perfil
 
 
 const val EXTRA_QUESTION_TEXT = "com.example.quizzapppro.EXTRA_QUESTION_TEXT"
@@ -60,6 +61,9 @@ class Activity2 : AppCompatActivity() {
         selectRadioButton = findViewById(R.id.select_radio_group)
 
         estatus = findViewById(selectRadioButton.checkedRadioButtonId)
+
+        val db = AppDatabase.getAppDatabase(this)
+        val perfil: Perfil = db.perfilDao().getPerfilById(1)
 
         for (x in 5..(categoriesChecked * 5)) {
             data.add(x)
@@ -117,9 +121,12 @@ class Activity2 : AppCompatActivity() {
                     "1" -> intSwitch = 1
                     "2" -> intSwitch = 2
                     "3" -> intSwitch = 3
+                   // perfil.numeroPistas = intSwitch
                 }
             } else {
                 intSwitch = 0
+
+                //perfil.usarPistas = 0
             }
         }
 
@@ -134,6 +141,9 @@ class Activity2 : AppCompatActivity() {
             numPreguntas = difficultySpinner.selectedItem.toString().toInt()
             numPistas = intSwitch
             listaCategorias = emptyList()
+
+
+            perfil.totalPreguntas = difficultySpinner.selectedItem.toString().toInt()
 
             for (x in checks){
                 if(x.isChecked){
