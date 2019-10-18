@@ -19,4 +19,7 @@ interface PerfilDao {
 
     @Query("SELECT * FROM perfil ORDER BY idJugador")
     fun getAll(): List<Perfil>
+
+    @Query("SELECT * FROM perfil WHERE status = 1")
+    fun getCurrentPerfil() : Perfil
 }

@@ -65,7 +65,7 @@ class Activity2 : AppCompatActivity() {
         btnTry = findViewById(R.id.try_button)
 
         val db = AppDatabase.getAppDatabase(this)
-        val perfil: Perfil = db.perfilDao().getPerfilById(1)
+        val perfil: Perfil = db.perfilDao().getCurrentPerfil()
 
         for (x in 5..(categoriesChecked * 5)) {
             data.add(x)

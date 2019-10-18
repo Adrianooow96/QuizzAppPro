@@ -14,5 +14,6 @@ data class Perfil (
     @field:ColumnInfo(name = "dificultad") var dificultad: Int,
     @field:ColumnInfo(name = "usarPistas") var usarPistas: Int,
     @field:ColumnInfo(name = "numeroPistas") var numeroPistas: Int,
-    @field:ColumnInfo(name = "categoriasElegidas") var categoriasElegidas: String
+    @field:ColumnInfo(name = "categoriasElegidas") var categoriasElegidas: String,
+    @field:ColumnInfo(name = "status") var status: Int
 )
