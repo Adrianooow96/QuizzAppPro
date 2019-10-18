@@ -1,5 +1,6 @@
 package com.example.quizzapppro
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 
 const val NUMBER_OF_PERFORMANCE = "com.example.quizzapppro.NUMBER_OF_PERFORMANCE"
 const val NUMBER_OF_SCORE = "com.example.quizzapppro.NUMBER_OF_SCORE"
+const val EXTRA_SCORE = "com.example.quizzapppro.extraScore"
 
 class Activity3 : AppCompatActivity() {
 
@@ -27,6 +29,9 @@ class Activity3 : AppCompatActivity() {
     private lateinit var btnSiguiente : Button
     private lateinit var btnAnterior : Button
     private lateinit var btnPista : Button
+
+    private var backPressedTime : Long = 0
+    private var score: Int = 0
 
     private lateinit var opciones : List<Button>
 
@@ -161,13 +166,15 @@ class Activity3 : AppCompatActivity() {
             else{
                 //INTENT A SCOREACTIVITY
                 val intent = Intent(this, Activity4::class.java)
-                var score: Int
                 score = model.getScore()
+
                 var performance :Int
                 performance = model.getPerformance()
 
-                intent.putExtra(NUMBER_OF_SCORE, score)
-                intent.putExtra(NUMBER_OF_PERFORMANCE, performance)
+                intent.putExtra(EXTRA_SCORE, score)
+                setResult(Activity.RESULT_OK, intent)
+                //intent.putExtra(NUMBER_OF_SCORE, score)
+                //intent.putExtra(NUMBER_OF_PERFORMANCE, performance)
 
                 startActivity(intent)
 
@@ -186,6 +193,22 @@ class Activity3 : AppCompatActivity() {
     }
 
 
+    private fun finishQuiz() {
+        finish()
+    }
+
+    override fun onBackPressed(){
+        if(backPressedTime + 2000 > System.currentTimeMillis()){
+            finishQuiz()
+        }else{
+            Toast.makeText(
+                this,
+                "Presiona de nuevo para salir",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        backPressedTime = System.currentTimeMillis()
+    }
 
     fun onButtonClick(view: View){
         val button = view as Button

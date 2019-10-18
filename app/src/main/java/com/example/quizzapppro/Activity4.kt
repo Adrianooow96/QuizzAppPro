@@ -37,7 +37,7 @@ class Activity4 : AppCompatActivity() {
         if (bundle != null) {
             // get your data here
 
-            score = intent.getIntExtra(NUMBER_OF_SCORE,9)
+            score = intent.getIntExtra(EXTRA_SCORE,9)
             performance = intent.getIntExtra(NUMBER_OF_PERFORMANCE,9)
             //name = intent.getStringExtra(NAME_OF_PLAYER)
 
