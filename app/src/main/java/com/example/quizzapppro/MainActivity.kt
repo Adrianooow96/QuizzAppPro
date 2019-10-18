@@ -1,25 +1,41 @@
 package com.example.quizzapppro
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizzapppro.bd.AppDatabase
 import com.facebook.stetho.Stetho
+import android.R.attr.data
+import android.R.id.edit
+import android.content.Context
+import android.content.SharedPreferences
+
+
+
+
 
 
 var listaCategorias : List<String> = listOf("Espanol", "Matemáticas", "Ciencias", "Historia", "Geografia", "Cívica")
 var numPreguntas = 18
 var dificultad : String = "Media"
 var numPistas : Int = 0
-
+const val REQUEST_CODE_QUIZ = 1
+const val SHARED_PREFS = "sharedPrefs"
+const val KEY_HIGHSCORE = "highscore"
 class MainActivity : AppCompatActivity() {
+
 
     private lateinit var play_button : Button
     private lateinit var options_button : Button
     private lateinit var score_button : Button
     private lateinit var profiles_button : Button
+
+    private lateinit var txtViewHighScore : TextView
+    private var highscore : Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,10 +54,12 @@ class MainActivity : AppCompatActivity() {
         score_button = findViewById(R.id.score_button)
         profiles_button = findViewById(R.id.profiles_button)
 
+        txtViewHighScore = findViewById(R.id.text_view_highscore)
+        loadHighscore()
 
         play_button.setOnClickListener(){
             val intent : Intent = Intent(this, Activity3::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE_QUIZ)
         }
         options_button.setOnClickListener{
             val intent : Intent = Intent(this, Activity2::class.java)
@@ -56,6 +74,37 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == REQUEST_CODE_QUIZ){
+            if(resultCode == Activity.RESULT_OK){
+                var score = data?.getIntExtra(EXTRA_SCORE, 0)
+                if (score != null) {
+                    if(score > highscore) {
+                        updateHighscore(score)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun loadHighscore(){
+        val prefs = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
+        highscore = prefs.getInt(KEY_HIGHSCORE, 0)
+        txtViewHighScore.setText("Highscore: $highscore")
+    }
+
+    private fun updateHighscore(highscoreNew: Int) {
+        highscore = highscoreNew
+        txtViewHighScore.setText("Highscore: $highscore")
+
+        val prefs = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+        editor.putInt(KEY_HIGHSCORE, highscore)
+        editor.apply()
     }
 
 }
