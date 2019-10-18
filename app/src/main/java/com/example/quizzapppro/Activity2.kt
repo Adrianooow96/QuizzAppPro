@@ -62,6 +62,8 @@ class Activity2 : AppCompatActivity() {
 
         estatus = findViewById(selectRadioButton.checkedRadioButtonId)
 
+        btnTry = findViewById(R.id.try_button)
+
         val db = AppDatabase.getAppDatabase(this)
         val perfil: Perfil = db.perfilDao().getPerfilById(1)
 
@@ -134,7 +136,7 @@ class Activity2 : AppCompatActivity() {
 
         dificultad = estatus.text as String
 
-        btnTry = findViewById(R.id.try_button)
+
 
         btnTry.setOnClickListener {
 
