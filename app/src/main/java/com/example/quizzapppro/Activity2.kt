@@ -40,6 +40,9 @@ class Activity2 : AppCompatActivity() {
 
     private lateinit var btnTry: Button
 
+    val db = AppDatabase.getAppDatabase(this)
+    val perfil: Perfil = db.perfilDao().getCurrentPerfil()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_2)
@@ -64,8 +67,7 @@ class Activity2 : AppCompatActivity() {
 
         btnTry = findViewById(R.id.try_button)
 
-        val db = AppDatabase.getAppDatabase(this)
-        val perfil: Perfil = db.perfilDao().getCurrentPerfil()
+
 
         for (x in 5..(categoriesChecked * 5)) {
             data.add(x)
@@ -123,12 +125,13 @@ class Activity2 : AppCompatActivity() {
                     "1" -> intSwitch = 1
                     "2" -> intSwitch = 2
                     "3" -> intSwitch = 3
-                   // perfil.numeroPistas = intSwitch
+
                 }
+                perfil.numeroPistas = intSwitch
             } else {
                 intSwitch = 0
 
-                //perfil.usarPistas = 0
+                perfil.numeroPistas = intSwitch
             }
         }
 
@@ -145,14 +148,15 @@ class Activity2 : AppCompatActivity() {
             listaCategorias = emptyList()
 
 
-            //perfil.totalPreguntas = difficultySpinner.selectedItem.toString().toInt()
+            perfil.totalPreguntas = difficultySpinner.selectedItem.toString().toInt()
 
             for (x in checks){
                 if(x.isChecked){
                     listaCategorias = listaCategorias.plus(x.text.toString())
                 }
             }
-            //dificultad = estatus.toString()
+
+            perfil.dificultad = estatus.toString()
 
             setResult(Activity.RESULT_OK, intent)
             Toast.makeText(this,
@@ -163,6 +167,8 @@ class Activity2 : AppCompatActivity() {
             //startActivity(intent)
 
             //startActivityForResult(intent, SCOREACTIVITY_REQUEST_CODE)
+
+            db.perfilDao().updatePerfil(perfil)
         }
 
         checks = arrayListOf(
@@ -232,6 +238,7 @@ class Activity2 : AppCompatActivity() {
         estatus = findViewById(selectRadioButton.checkedRadioButtonId)
         dificultad = estatus.text as String
 
+       // perfil.dificultad = dificultad
 
     }
 }
