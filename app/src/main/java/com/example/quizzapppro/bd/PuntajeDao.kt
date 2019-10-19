@@ -11,5 +11,6 @@ interface PuntajeDao {
     @Query("SELECT * FROM puntaje ORDER BY puntaje")
     fun getAll(): List<Puntaje>
 
-
+    @Query("SELECT MAX(puntaje) FROM puntaje")
+    fun getPuntaje(): List<Puntaje>
 }
