@@ -22,10 +22,12 @@ const val EXTRA_SCORE = "com.example.quizzapppro.extraScore"
 class Activity3 : AppCompatActivity() {
 
     val db = AppDatabase.getAppDatabase(this)
+    /*
     val juego: Juego = db.juegoDao().getJuegoById(1)
     val perfil: Perfil = db.perfilDao().getCurrentPerfil()
     val idJugador = perfil.idJugador
     val puntaje: Puntaje = db.puntajeDao().getPuntajeById(idJugador)
+     */
 
     private lateinit var tvPistas : TextView
 
