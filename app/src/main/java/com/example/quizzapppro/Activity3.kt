@@ -10,12 +10,22 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
+import com.example.quizzapppro.bd.Juego
+import com.example.quizzapppro.bd.AppDatabase
+import com.example.quizzapppro.bd.Perfil
+import com.example.quizzapppro.bd.Puntaje
 
 const val NUMBER_OF_PERFORMANCE = "com.example.quizzapppro.NUMBER_OF_PERFORMANCE"
 const val NUMBER_OF_SCORE = "com.example.quizzapppro.NUMBER_OF_SCORE"
 const val EXTRA_SCORE = "com.example.quizzapppro.extraScore"
 
 class Activity3 : AppCompatActivity() {
+
+    val db = AppDatabase.getAppDatabase(this)
+    val juego: Juego = db.juegoDao().getJuegoById(1)
+    val perfil: Perfil = db.perfilDao().getCurrentPerfil()
+    val idJugador = perfil.idJugador
+    val puntaje: Puntaje = db.puntajeDao().getPuntajeById(idJugador)
 
     private lateinit var tvPistas : TextView
 

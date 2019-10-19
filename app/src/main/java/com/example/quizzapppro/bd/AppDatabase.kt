@@ -16,6 +16,9 @@ import androidx.room.RoomDatabase
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun perfilDao() : PerfilDao
+    abstract fun juegoDao() : JuegoDao
+    abstract fun puntajeDao() : PuntajeDao
+    abstract fun preguntaDao() : PreguntaDao
 
     companion object {
 
