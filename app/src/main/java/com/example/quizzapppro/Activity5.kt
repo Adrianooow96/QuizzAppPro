@@ -15,7 +15,6 @@ class Activity5 : AppCompatActivity() {
     val db = AppDatabase.getAppDatabase(this)
     val perfil: Perfil = db.perfilDao().getCurrentPerfil()
     val idJugador = perfil.idJugador
-    val puntajes = db.puntajeDao().getPuntaje()
 
     private lateinit var tv_best1 : TextView
     private lateinit var tv_best2 : TextView
@@ -44,7 +43,7 @@ class Activity5 : AppCompatActivity() {
         tv_best4.setText("name4  " + sharedPreference.getValueInt("best4"))
         tv_best5.setText("name5  " + sharedPreference.getValueInt("best5"))
          */
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, puntajes)
-        listView.adapter = adapter
+        //val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, puntajes)
+        //listView.adapter = adapter
     }
 }

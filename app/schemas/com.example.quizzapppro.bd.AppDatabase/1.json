@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "35c5ed5887e82c18274269cf7fe56d39",
+    "identityHash": "48928e41cb9c5906ea4a20cdebc01246",
     "entities": [
       {
         "tableName": "pregunta",
@@ -71,7 +71,7 @@
       },
       {
         "tableName": "perfil",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idJugador` INTEGER NOT NULL, `nombreJugador` TEXT NOT NULL, `avatar` INTEGER NOT NULL, `totalPreguntas` INTEGER NOT NULL, `dificultad` INTEGER NOT NULL, `usarPistas` INTEGER NOT NULL, `numeroPistas` INTEGER NOT NULL, `categoriasElegidas` TEXT NOT NULL, PRIMARY KEY(`idJugador`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idJugador` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombreJugador` TEXT NOT NULL, `avatar` INTEGER NOT NULL, `totalPreguntas` INTEGER NOT NULL, `dificultad` TEXT NOT NULL, `numeroPistas` INTEGER NOT NULL, `categoriasElegidas` TEXT NOT NULL, `status` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "idJugador",
@@ -100,13 +100,7 @@
           {
             "fieldPath": "dificultad",
             "columnName": "dificultad",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "usarPistas",
-            "columnName": "usarPistas",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
             "notNull": true
           },
           {
@@ -120,29 +114,26 @@
             "columnName": "categoriasElegidas",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
             "idJugador"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
-        "indices": [
-          {
-            "name": "index_perfil_idJugador",
-            "unique": true,
-            "columnNames": [
-              "idJugador"
-            ],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_perfil_idJugador` ON `${TABLE_NAME}` (`idJugador`)"
-          }
-        ],
+        "indices": [],
         "foreignKeys": []
       },
       {
         "tableName": "juego",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `idPregunta` INTEGER NOT NULL, `respondida` INTEGER NOT NULL, `respuesta` TEXT NOT NULL, `esActual` INTEGER NOT NULL, `usoPistas` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idPregunta` INTEGER NOT NULL, `respondida` INTEGER NOT NULL, `respuesta` TEXT NOT NULL, `esActual` INTEGER NOT NULL, `usoPistas` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -185,14 +176,14 @@
           "columnNames": [
             "id"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [],
         "foreignKeys": []
       },
       {
         "tableName": "puntaje",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPuntaje` INTEGER NOT NULL, `puntaje` INTEGER NOT NULL, `idJugador` INTEGER NOT NULL, `rendimiento` INTEGER NOT NULL, PRIMARY KEY(`idPuntaje`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPuntaje` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `puntaje` INTEGER NOT NULL, `perfil_idJugador` INTEGER NOT NULL, `rendimiento` INTEGER NOT NULL, FOREIGN KEY(`perfil_idJugador`) REFERENCES `perfil`(`idJugador`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "idPuntaje",
@@ -207,8 +198,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "idJugador",
-            "columnName": "idJugador",
+            "fieldPath": "perfil_idJugador",
+            "columnName": "perfil_idJugador",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -223,25 +214,28 @@
           "columnNames": [
             "idPuntaje"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
-        "indices": [
+        "indices": [],
+        "foreignKeys": [
           {
-            "name": "index_puntaje_idPuntaje",
-            "unique": true,
-            "columnNames": [
-              "idPuntaje"
+            "table": "perfil",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "perfil_idJugador"
             ],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_puntaje_idPuntaje` ON `${TABLE_NAME}` (`idPuntaje`)"
+            "referencedColumns": [
+              "idJugador"
+            ]
           }
-        ],
-        "foreignKeys": []
+        ]
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '35c5ed5887e82c18274269cf7fe56d39')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '48928e41cb9c5906ea4a20cdebc01246')"
     ]
   }
 }
