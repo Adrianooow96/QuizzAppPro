@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         val allPreguntas = db.preguntaDao().getAll()
        // val pr: pregunta = db.preguntaDao().getPregunta(1)
        // val perfil: Perfil = db.perfilDao().getCurrentPerfil()
-        //val countPerfles : Int = db.perfilDao().countPerfiles()
+        val countPerfles : Int = db.perfilDao().countPerfiles()
 
         play_button = findViewById(R.id.play_button)
         options_button = findViewById(R.id.options_button)
@@ -57,13 +57,13 @@ class MainActivity : AppCompatActivity() {
 
         txtViewHighScore = findViewById(R.id.text_view_highscore)
         loadHighscore()
-/*
+
         if(countPerfles == 0)
         {
             play_button.isEnabled = false
             options_button.isEnabled = false
         }
-*/
+
         play_button.setOnClickListener(){
             val intent : Intent = Intent(this, Activity3::class.java)
             startActivityForResult(intent, REQUEST_CODE_QUIZ)
