@@ -28,7 +28,6 @@ class Activity3 : AppCompatActivity() {
     val idJugador = perfil.idJugador
     val puntaje: Puntaje = db.puntajeDao().getPuntajeById(idJugador)
      */
-
     private lateinit var tvPistas : TextView
 
     private lateinit var tvPreguntaActual : TextView
