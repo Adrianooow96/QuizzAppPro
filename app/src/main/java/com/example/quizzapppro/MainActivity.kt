@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         // => Obtener referencia a base de datos basada en librería Room
         val db = AppDatabase.getAppDatabase(this)
+        val levels = db.preguntaDao().getAll()
        // val pr: pregunta = db.preguntaDao().getPregunta(1)
 
 

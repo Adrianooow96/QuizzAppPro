@@ -11,4 +11,8 @@ interface PreguntaDao {
     @Query ("SELECT * FROM pregunta WHERE idPregunta=:id")
     fun getPregunta(id: Int) : pregunta
 
+
+    @Query("SELECT * FROM pregunta")
+    fun getAll(): List<pregunta>
+
 }
