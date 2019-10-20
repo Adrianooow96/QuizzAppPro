@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "48928e41cb9c5906ea4a20cdebc01246",
+    "identityHash": "7045d56471a8511d464e4a00ab7217c8",
     "entities": [
       {
         "tableName": "pregunta",
@@ -57,16 +57,7 @@
           ],
           "autoGenerate": false
         },
-        "indices": [
-          {
-            "name": "index_pregunta_idPregunta",
-            "unique": true,
-            "columnNames": [
-              "idPregunta"
-            ],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_pregunta_idPregunta` ON `${TABLE_NAME}` (`idPregunta`)"
-          }
-        ],
+        "indices": [],
         "foreignKeys": []
       },
       {
@@ -235,7 +226,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '48928e41cb9c5906ea4a20cdebc01246')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7045d56471a8511d464e4a00ab7217c8')"
     ]
   }
 }

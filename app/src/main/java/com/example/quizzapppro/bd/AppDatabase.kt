@@ -58,7 +58,7 @@ abstract class AppDatabase : RoomDatabase() {
             db.execSQL("INSERT INTO dificultad_catalogo VALUES (1, 'Medio')")
             db.execSQL("INSERT INTO dificultad_catalogo VALUES (2, 'Difícil')")
 
-            db.execSQL("INSERT INTO pregunta VALUES (0, 'Para organizar los acontecimientos históricos de un relato podemos utilizar:', 0, 'Palabras o frases que indiquen tiempo', 'Sustantivos', 'Verbos conjugados en futuro', 'Oraciones tópico')")
+           // db.execSQL("INSERT INTO pregunta(idPregunta,pregunta,categoria,) VALUES (0, 'Para organizar los acontecimientos históricos de un relato podemos utilizar:', 0, 'Palabras o frases que indiquen tiempo', 'Sustantivos', 'Verbos conjugados en futuro', 'Oraciones tópico')")
             db.execSQL("INSERT INTO pregunta VALUES (1, 'Son dichos agudos y sentenciosos, de uso popular:', 0, 'Refranes', 'Chistes', 'Fábulas', 'Poemas')")
             db.execSQL("INSERT INTO pregunta VALUES (2, 'Es una característica de las fábulas:', 0, 'Señalan los defectos humanos', 'Explicar el origen del mundo', 'Finalizar con una pregunta', 'Utilizar personajes fantasmagóricos')")
             db.execSQL("INSERT INTO pregunta VALUES (3, 'La moraleja es:', 0, 'La enseñanza o lección que se deduce de una fábula', 'La opinión acerca de cómo está escrita la fábula', 'La forma en la que debemos actuar siempre', 'Lo que dice uno de los personajes al iniciar la fábula')")
