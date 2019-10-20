@@ -13,10 +13,7 @@ import android.R.attr.data
 import android.R.id.edit
 import android.content.Context
 import android.content.SharedPreferences
-
-
-
-
+import com.example.quizzapppro.bd.pregunta
 
 
 var listaCategorias : List<String> = listOf("Espanol", "Matemáticas", "Ciencias", "Historia", "Geografia", "Cívica")
@@ -47,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         // => Obtener referencia a base de datos basada en librería Room
         val db = AppDatabase.getAppDatabase(this)
+       // val pr: pregunta = db.preguntaDao().getPregunta(1)
 
         db.getPregunta()
 
