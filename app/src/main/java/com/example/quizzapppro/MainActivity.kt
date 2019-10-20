@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
         // => Obtener referencia a base de datos basada en librería Room
         val db = AppDatabase.getAppDatabase(this)
 
+        db.getPregunta()
+
 
         play_button = findViewById(R.id.play_button)
         options_button = findViewById(R.id.options_button)

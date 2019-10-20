@@ -9,11 +9,13 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-        pregunta::class, Perfil::class, Juego::class,Puntaje::class
+        pregunta::class//, Perfil::class, Juego::class,Puntaje::class
     ], version = 1
 )
 
 abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun getPregunta() :pregunta
 
     abstract fun perfilDao() : PerfilDao
     abstract fun juegoDao() : JuegoDao
