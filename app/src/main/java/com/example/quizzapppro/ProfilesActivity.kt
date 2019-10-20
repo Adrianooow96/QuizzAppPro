@@ -27,9 +27,9 @@ class ProfilesActivity : AppCompatActivity() {
         btnCreateProfile = findViewById(R.id.createProfile_button)
         lvProfiles = findViewById(R.id.list_view_profiles)
 
-        val listItems = listOf<Perfil>(Perfil(0, "AGC", 1, 5,"media", 0, "Español", 1),
-            Perfil(1, "MCS", 1, 5,"media", 0, "Español", 1),
-            Perfil(2, "MCM", 1, 5,"media", 0, "Español", 1))
+        val listItems = listOf<Perfil>(Perfil(0, "AGC", 1, 5,"media", 0, "100000", 0),
+            Perfil(1, "MCS", 1, 5,"media", 0, "100100", 0),
+            Perfil(2, "MCM", 1, 5,"media", 0, "110000", 0))
 
 
 

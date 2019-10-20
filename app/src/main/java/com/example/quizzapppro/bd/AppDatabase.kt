@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-        pregunta::class, Perfil::class, Juego::class,Puntaje::class
+        pregunta::class, Perfil::class, Juego::class,Puntaje::class,Categoria_catalogo::class,Dificultad_Catalogo::class
     ], version = 1
 )
 

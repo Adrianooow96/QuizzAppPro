@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "7045d56471a8511d464e4a00ab7217c8",
+    "identityHash": "f0e066bd260da770284c40da3aaace00",
     "entities": [
       {
         "tableName": "pregunta",
@@ -221,12 +221,73 @@
             ]
           }
         ]
+      },
+      {
+        "tableName": "categoria_catalogo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idCategoria` INTEGER NOT NULL, `nombreCategoria` TEXT NOT NULL, PRIMARY KEY(`idCategoria`))",
+        "fields": [
+          {
+            "fieldPath": "idCategoria",
+            "columnName": "idCategoria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombreCategoria",
+            "columnName": "nombreCategoria",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idCategoria"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "dificultad_catalogo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idDificultad` INTEGER NOT NULL, `nombreDificultad` TEXT NOT NULL, PRIMARY KEY(`idDificultad`))",
+        "fields": [
+          {
+            "fieldPath": "idDificultad",
+            "columnName": "idDificultad",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombreDificultad",
+            "columnName": "nombreDificultad",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idDificultad"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_dificultad_catalogo_idDificultad",
+            "unique": true,
+            "columnNames": [
+              "idDificultad"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_dificultad_catalogo_idDificultad` ON `${TABLE_NAME}` (`idDificultad`)"
+          }
+        ],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7045d56471a8511d464e4a00ab7217c8')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f0e066bd260da770284c40da3aaace00')"
     ]
   }
 }
