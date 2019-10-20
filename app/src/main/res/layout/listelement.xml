@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100sp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="290sp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:src="@drawable/ginjirotchi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:paddingTop="31sp"
+            android:paddingBottom="31sp"
+            android:paddingLeft="40sp"
+            android:text="ayuda" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/edit"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginBottom="20sp"
+        android:src="@drawable/ic_edit_black_24dp"/>
+
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginBottom="20sp"
+        android:src="@drawable/ic_delete_black_24dp" />
+
+</LinearLayout>
