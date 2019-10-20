@@ -13,6 +13,7 @@ import android.R.attr.data
 import android.R.id.edit
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.quizzapppro.bd.Perfil
 import com.example.quizzapppro.bd.pregunta
 
 
@@ -44,9 +45,10 @@ class MainActivity : AppCompatActivity() {
 
         // => Obtener referencia a base de datos basada en librería Room
         val db = AppDatabase.getAppDatabase(this)
-        val levels = db.preguntaDao().getAll()
+        val allPreguntas = db.preguntaDao().getAll()
        // val pr: pregunta = db.preguntaDao().getPregunta(1)
-
+       // val perfil: Perfil = db.perfilDao().getCurrentPerfil()
+        //val countPerfles : Int = db.perfilDao().countPerfiles()
 
         play_button = findViewById(R.id.play_button)
         options_button = findViewById(R.id.options_button)
@@ -55,7 +57,13 @@ class MainActivity : AppCompatActivity() {
 
         txtViewHighScore = findViewById(R.id.text_view_highscore)
         loadHighscore()
-
+/*
+        if(countPerfles == 0)
+        {
+            play_button.isEnabled = false
+            options_button.isEnabled = false
+        }
+*/
         play_button.setOnClickListener(){
             val intent : Intent = Intent(this, Activity3::class.java)
             startActivityForResult(intent, REQUEST_CODE_QUIZ)

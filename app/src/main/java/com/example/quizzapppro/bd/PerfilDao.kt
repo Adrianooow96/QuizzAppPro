@@ -22,4 +22,7 @@ interface PerfilDao {
 
     @Query("SELECT * FROM perfil WHERE status = 1")
     fun getCurrentPerfil() : Perfil
+
+    @Query("SELECT COUNT(*) FROM perfil")
+    fun countPerfiles() : Int
 }

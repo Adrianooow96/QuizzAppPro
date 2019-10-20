@@ -23,7 +23,7 @@ class Activity5 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_5)
-        val sharedPreference:SharedPreference=SharedPreference(this)
+      //  val sharedPreference:SharedPreference=SharedPreference(this)
 
 
        // listView = findViewById<ListView>(R.id.list_view)
