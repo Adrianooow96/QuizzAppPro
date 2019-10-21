@@ -72,7 +72,13 @@ class Activity2 : AppCompatActivity() {
 
         btnTry = findViewById(R.id.try_button)
 
-
+        when (perfil.numeroPistas)
+        {
+            0-> enableClues.isChecked = false
+            1 -> enableClues.isChecked = true
+            2 -> enableClues.isChecked = true
+            3 -> enableClues.isChecked = true
+        }
 
         for (x in 5..(categoriesChecked * 5)) {
             data.add(x)
@@ -111,7 +117,11 @@ class Activity2 : AppCompatActivity() {
                         "2" -> intSwitch = 2
                         "3" -> intSwitch = 3
                     }
-                    perfil.numeroPistas = intSwitch
+
+                }
+                else
+                {
+                    intSwitch = 0
                 }
             }
         }
@@ -125,10 +135,12 @@ class Activity2 : AppCompatActivity() {
                     "3" -> intSwitch = 3
                 }
             } else {
-                perfil.numeroPistas = 0
+                intSwitch = 0
             }
-            perfil.numeroPistas = intSwitch
         }
+
+
+
 
         validateData()
 
@@ -141,6 +153,8 @@ class Activity2 : AppCompatActivity() {
             numPreguntas = difficultySpinner.selectedItem.toString().toInt()
             numPistas = intSwitch
             listaCategorias = emptyList()
+
+            perfil.numeroPistas = intSwitch
 
 
             perfil.totalPreguntas = numPreguntas
