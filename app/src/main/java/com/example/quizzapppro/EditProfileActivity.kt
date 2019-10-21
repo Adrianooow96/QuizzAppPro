@@ -42,8 +42,6 @@ class EditProfileActivity : AppCompatActivity() {
         nombreEditText.setText(perfilactual.nombreJugador)
         iconsRadioGroup.check(iconsRadioGroup.getChildAt(perfilactual.avatar).id)
 
-
-
         confirmarButton.setOnClickListener {
             //validar datos
             namesList = db.perfilDao().getAllNames()

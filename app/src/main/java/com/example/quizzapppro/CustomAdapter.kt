@@ -12,6 +12,7 @@ import com.example.quizzapppro.bd.Perfil
 
 class CustomAdapter(private val context : Context, private var profilesArrayList: ArrayList<Perfil>) : BaseAdapter() {
     val db = AppDatabase.getAppDatabase(context)
+    val perfil: Perfil = db.perfilDao().getCurrentPerfil()
 
     private val myImageList = intArrayOf(R.drawable.ginjirotchi, R.drawable.hashizotchi, R.drawable.kuchipatchi, R.drawable.mametchi, R.drawable.mimitchi, R.drawable.pochitchi)
 
@@ -48,6 +49,7 @@ class CustomAdapter(private val context : Context, private var profilesArrayList
             holder.tvNick = convertView!!.findViewById(R.id.nick) as TextView
             holder.btnEdit = convertView!!.findViewById(R.id.edit) as ImageButton
             holder.btnDelete = convertView!!.findViewById(R.id.delete) as ImageButton
+            holder.btnSelect = convertView!!.findViewById(R.id.select) as ImageButton
             holder.pIcon = convertView!!.findViewById(R.id.icon) as ImageView
 
             convertView.tag = holder
@@ -60,14 +62,27 @@ class CustomAdapter(private val context : Context, private var profilesArrayList
         holder.pIcon!!.setImageResource(myImageList[profilesArrayList[position].avatar])
 
         holder.btnDelete!!.setOnClickListener {
-            db.perfilDao().deletePerfil(db.perfilDao().getPerfilById(profilesArrayList[position].idJugador))
-            Toast.makeText(
-                context,
-                "Perfil eliminado.",
-                Toast.LENGTH_SHORT
-            ).show()
-            profilesArrayList = profilesArrayList.minus(profilesArrayList[position]) as ArrayList<Perfil>
-            notifyDataSetChanged()
+            val countPerfles : Int = db.perfilDao().countPerfiles()
+            if(countPerfles > 1) {
+                db.perfilDao()
+                    .deletePerfil(db.perfilDao().getPerfilById(profilesArrayList[position].idJugador))
+                Toast.makeText(
+                    context,
+                    "Perfil eliminado.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                profilesArrayList =
+                    profilesArrayList.minus(profilesArrayList[position]) as ArrayList<Perfil>
+                notifyDataSetChanged()
+            }
+            else
+            {
+                Toast.makeText(
+                    context,
+                    "No puedes eliminar tu único perfil.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
         holder.btnEdit!!.setOnClickListener {
@@ -79,6 +94,23 @@ class CustomAdapter(private val context : Context, private var profilesArrayList
             startActivity(context, intent, null)
         }
 
+        holder.btnSelect!!.setOnClickListener {
+            var selectedPerfil = db.perfilDao().getPerfilById(profilesArrayList[position].idJugador)
+            if(selectedPerfil.status == 1){
+                Toast.makeText(
+                    context,
+                    "Este perfil ya está seleccionado.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else{
+                db.perfilDao().resetStatus()
+                selectedPerfil.status = 1
+                db.perfilDao().updatePerfil(selectedPerfil)
+                notifyDataSetChanged()
+            }
+        }
+
         return convertView
     }
 
@@ -87,6 +119,7 @@ class CustomAdapter(private val context : Context, private var profilesArrayList
         var tvNick: TextView? = null
         var btnEdit: ImageButton? = null
         var btnDelete: ImageButton? = null
+        var btnSelect: ImageButton? = null
         internal var pIcon: ImageView? = null
 
     }

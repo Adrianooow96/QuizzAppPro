@@ -34,4 +34,7 @@ interface PerfilDao {
 
     @Query("UPDATE perfil SET 'status'=0")
     fun resetStatus()
+
+    @Query("SELECT * FROM perfil WHERE nombreJugador = :nombre")
+    fun getIdByName(nombre: String): Int
 }

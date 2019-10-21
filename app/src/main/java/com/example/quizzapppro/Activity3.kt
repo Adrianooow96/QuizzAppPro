@@ -10,10 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
-import com.example.quizzapppro.bd.Juego
-import com.example.quizzapppro.bd.AppDatabase
-import com.example.quizzapppro.bd.Perfil
-import com.example.quizzapppro.bd.Puntaje
+import com.example.quizzapppro.bd.*
 
 const val NUMBER_OF_PERFORMANCE = "com.example.quizzapppro.NUMBER_OF_PERFORMANCE"
 const val NUMBER_OF_SCORE = "com.example.quizzapppro.NUMBER_OF_SCORE"
@@ -47,6 +44,32 @@ class Activity3 : AppCompatActivity() {
     private lateinit var opciones : List<Button>
 
     private val model by lazy{ ViewModelProviders.of(this)[GameViewModel::class.java]}
+
+    private fun prepareGame(perfil: Perfil){
+        var preguntas : List<Int> = listOf()
+
+        if((perfil.categoriasElegidas and 1) == 1){
+            preguntas += db.preguntaDao().getAllEthics()
+        }
+        if((perfil.categoriasElegidas and 2) == 2){
+            preguntas += db.preguntaDao().getAllGeo()
+        }
+        if((perfil.categoriasElegidas and 4) == 4){
+            preguntas += db.preguntaDao().getAllHistory()
+        }
+        if((perfil.categoriasElegidas and 8) == 8){
+            preguntas += db.preguntaDao().getAllScience()
+        }
+        if((perfil.categoriasElegidas and 16) == 16){
+            preguntas += db.preguntaDao().getAllMat()
+        }
+        if((perfil.categoriasElegidas and 32) == 32){
+            preguntas += db.preguntaDao().getAllSpanish()
+        }
+        preguntas = preguntas.shuffled()
+        preguntas = preguntas.subList(0, perfil.totalPreguntas)
+    }
+
     private fun validateQuestion(){
         if(model.getCurrentQuestion().respondida){
             if (model.getCurrentQuestion().esCorrecta == true){
@@ -144,6 +167,9 @@ class Activity3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_3)
 
+        val db = AppDatabase.getAppDatabase(this)
+        val perfil: Perfil = db.perfilDao().getCurrentPerfil()
+
         tvPistas =findViewById(R.id.pistas_usadas_text_view)
         tvPreguntaActual =findViewById(R.id.pregunta_actual_text_view)
         btnPrimeraOpcion =findViewById(R.id.first_option_button)
@@ -154,7 +180,11 @@ class Activity3 : AppCompatActivity() {
         btnSiguiente =findViewById(R.id.next_button)
         btnAnterior =findViewById(R.id.previous_button)
         btnPista =findViewById(R.id.hint_button)
-
+        /*when(perfil.dificultad){
+            2 -> opciones = listOf<Button>(btnPrimeraOpcion, btnSegundaOpcion, btnTerceraOpcion, btnCuartaOpcion)
+            1 -> opciones = listOf<Button>(btnPrimeraOpcion, btnSegundaOpcion, btnTerceraOpcion)
+            0 -> opciones = listOf<Button>(btnPrimeraOpcion, btnSegundaOpcion)
+        }*/
         opciones = listOf<Button>(btnPrimeraOpcion, btnSegundaOpcion, btnTerceraOpcion, btnCuartaOpcion)
 
         model.setQuestions()

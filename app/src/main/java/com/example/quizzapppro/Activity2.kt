@@ -35,6 +35,7 @@ class Activity2 : AppCompatActivity() {
     private lateinit var enableClues: Switch
     private var intSwitch = 0
     private val clue = arrayOf("1", "2", "3")
+    private var categories = 0b000000
 
     private val data: MutableList<Int> = mutableListOf<Int>()
 
@@ -47,7 +48,7 @@ class Activity2 : AppCompatActivity() {
         setContentView(R.layout.activity_2)
 
         val db = AppDatabase.getAppDatabase(this)
-        //val perfil: Perfil = db.perfilDao().getCurrentPerfil()
+        val perfil: Perfil = db.perfilDao().getCurrentPerfil()
 
         enableClues = findViewById(R.id.enable_clues)
 
@@ -97,14 +98,6 @@ class Activity2 : AppCompatActivity() {
         setResult(Activity.RESULT_CANCELED)
 
         numberSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
-        }
-
-        numberSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {
 
             }
@@ -116,6 +109,7 @@ class Activity2 : AppCompatActivity() {
                         "2" -> intSwitch = 2
                         "3" -> intSwitch = 3
                     }
+                    perfil.numeroPistas = intSwitch
                 }
             }
         }
@@ -127,14 +121,11 @@ class Activity2 : AppCompatActivity() {
                     "1" -> intSwitch = 1
                     "2" -> intSwitch = 2
                     "3" -> intSwitch = 3
-
                 }
-               // perfil.numeroPistas = intSwitch
             } else {
-                intSwitch = 0
-
-                //perfil.numeroPistas = intSwitch
+                perfil.numeroPistas = 0
             }
+            perfil.numeroPistas = intSwitch
         }
 
         validateData()
@@ -150,27 +141,36 @@ class Activity2 : AppCompatActivity() {
             listaCategorias = emptyList()
 
 
-            //perfil.totalPreguntas = difficultySpinner.selectedItem.toString().toInt()
+            perfil.totalPreguntas = numPreguntas
 
+            categories = 0
             for (x in checks){
                 if(x.isChecked){
-                    listaCategorias = listaCategorias.plus(x.text.toString())
+                    when(x){
+                        spanishCheckBox -> categories+=0b100000
+                        matCheckBox -> categories+=0b010000
+                        scienceCheckBox -> categories+=0b001000
+                        historyCheckBox -> categories+=0b000100
+                        geoCheckBox -> categories+=0b000010
+                        ethicCheckBox -> categories+=0b000001
+                    }
                 }
             }
+            perfil.categoriasElegidas = categories
 
-           // perfil.dificultad = estatus.toString()
+            when (estatus.text)
+            {
+                "Alta" -> perfil.dificultad = 2
+                "Media" -> perfil.dificultad = 1
+                "Baja" -> perfil.dificultad = 0
+            }
 
             setResult(Activity.RESULT_OK, intent)
             Toast.makeText(this,
-               // "Cambios guardados.",
-                numberSpinner.selectedItemPosition.toString(),
+                "Cambios guardados.",
                 Toast.LENGTH_SHORT
                 ).show()
-            //startActivity(intent)
-
-            //startActivityForResult(intent, SCOREACTIVITY_REQUEST_CODE)
-
-           // db.perfilDao().updatePerfil(perfil)
+            db.perfilDao().updatePerfil(perfil)
         }
 
         checks = arrayListOf(
@@ -233,6 +233,13 @@ class Activity2 : AppCompatActivity() {
         data.removeAll(data)
         for (x in 5..categoriesChecked * 5) {
             data.add(x)
+        }
+        difficultySpinner.setSelection(categoriesChecked*5-5, true)
+
+        when(categoriesChecked)
+        {
+            0 ->  btnTry.isEnabled = false
+            else -> btnTry.isEnabled = true
         }
     }
 

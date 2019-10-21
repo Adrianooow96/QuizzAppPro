@@ -60,7 +60,12 @@ class CreateProfileActivity : AppCompatActivity() {
             }
             else{
                 db.perfilDao().createNewPerfil(name, icon)
-                finish();
+               var currentId = db.perfilDao().getIdByName(name)
+                var selectedPerfil = db.perfilDao().getPerfilById(currentId)
+                db.perfilDao().resetStatus()
+                selectedPerfil.status = 1
+                db.perfilDao().updatePerfil(selectedPerfil)
+                finish()
             }
         }
 
