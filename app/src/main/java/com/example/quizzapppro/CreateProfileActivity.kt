@@ -2,11 +2,13 @@ package com.example.quizzapppro
 
 //import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizzapppro.bd.AppDatabase
 import com.example.quizzapppro.bd.Perfil
 import com.example.quizzapppro.bd.PerfilDao
+import kotlinx.android.synthetic.main.activity_name.*
 
 class CreateProfileActivity : AppCompatActivity() {
 
@@ -57,6 +59,9 @@ class CreateProfileActivity : AppCompatActivity() {
                     "Por favor, seleccione un avatar.",
                     Toast.LENGTH_LONG
                 ).show()
+            }
+            else if (TextUtils.isEmpty(name)){
+                nombreEditText.error = "Escribe tu alias"
             }
             else{
                 db.perfilDao().createNewPerfil(name, icon)
