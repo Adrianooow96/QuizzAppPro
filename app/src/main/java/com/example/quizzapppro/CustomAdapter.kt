@@ -71,12 +71,9 @@ class CustomAdapter(private val context : Context, private var profilesArrayList
         }
 
         holder.btnEdit!!.setOnClickListener {
-            val intent = Intent(context,EditProfileActivity::class.java)
-            var selectedPerfil = db.perfilDao().getPerfilById(profilesArrayList[position].idJugador)
-            db.perfilDao().resetStatus()
-            selectedPerfil.status = 1
-            db.perfilDao().updatePerfil(selectedPerfil)
-            startActivity(context, intent, null)
+            val intent = Intent(context, EditProfileActivity::class.java)
+
+            startActivity(context,intent,null)
         }
 
         return convertView
