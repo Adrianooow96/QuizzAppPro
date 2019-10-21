@@ -32,22 +32,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Selecciona un avatar"
+        android:layout_marginTop="20sp"
         android:textSize="32sp"
         android:layout_gravity="center"
         android:textAlignment="center"/>
 
-    <LinearLayout
+    <HorizontalScrollView
         android:id="@+id/rg_iconos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="20sp"
+        android:layout_marginTop="20sp"
         android:layout_gravity="left">
 
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/ginjirotchi_radio_button"
@@ -93,7 +95,7 @@
 
         </RadioGroup>
 
-    </LinearLayout>
+    </HorizontalScrollView>
 
 
     <Button
@@ -101,6 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Confirmar" />
+        android:text="Confirmar"
+        android:layout_marginTop="20sp"/>
 
 </LinearLayout>
