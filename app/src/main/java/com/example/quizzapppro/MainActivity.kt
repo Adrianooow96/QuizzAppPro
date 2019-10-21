@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         score_button.setOnClickListener() {
-            val intent : Intent = Intent(this, Activity5::class.java)
+            val intent : Intent = Intent(this, ScoreActivity::class.java)
             startActivity(intent)
         }
         profiles_button.setOnClickListener() {
