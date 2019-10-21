@@ -6,7 +6,7 @@ class GameViewModel : ViewModel() {
 
     private var questions: List<Question> = listOf()
     private var allQuestions: List<Question>
-    private var currentQuestion: Int = 0
+    public var currentQuestion: Int = 0
     private var score : Int = 0
     private var performance : Int = 0
 
@@ -271,6 +271,8 @@ class GameViewModel : ViewModel() {
 
     public fun getCurrentQuestion() = questions[currentQuestion]
 
+    public fun getCurrentQuestionId() = currentQuestion
+
     public fun nextQuestion() {
         currentQuestion = (currentQuestion + 1) % questions.size
     }
@@ -296,7 +298,7 @@ class GameViewModel : ViewModel() {
 
         }
         questions.shuffled()
-        questions = questions.subList(0, numPreguntas)
+        //questions = questions.subList(0, numPreguntas)
     }
 
 }
