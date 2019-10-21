@@ -235,6 +235,12 @@ class Activity2 : AppCompatActivity() {
             data.add(x)
         }
         difficultySpinner.setSelection(categoriesChecked*5-5, true)
+
+        when(categoriesChecked)
+        {
+            0 ->  btnTry.isEnabled = false
+            else -> btnTry.isEnabled = true
+        }
     }
 
     fun onCheckedChanged(view: View) {
