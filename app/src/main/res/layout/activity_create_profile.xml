@@ -10,6 +10,7 @@
     tools:context=".CreateProfileActivity">
 
     <TextView
+        android:id="@+id/tv_alias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Escribe tu alias"
@@ -27,6 +28,7 @@
         android:hint="3 caracteres" />
 
     <TextView
+        android:id="@+id/tv_avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Selecciona un avatar"
@@ -35,6 +37,7 @@
         android:textAlignment="center"/>
 
     <LinearLayout
+        android:id="@+id/rg_iconos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -47,36 +50,42 @@
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/ginjirotchi_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:drawableStart="@drawable/ginjirotchi_radio" />
 
             <RadioButton
+                android:id="@+id/hashizotchi_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:drawableStart="@drawable/hashizotchi_radio" />
 
             <RadioButton
+                android:id="@+id/kuchipatchi_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:drawableStart="@drawable/kuchipatchi_radio" />
 
             <RadioButton
+                android:id="@+id/mametchi_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:drawableStart="@drawable/mametchi_radio" />
 
             <RadioButton
+                android:id="@+id/mimitchi_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:drawableStart="@drawable/mimitchi_radio" />
 
             <RadioButton
+                android:id="@+id/pochitchi_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
@@ -88,6 +97,7 @@
 
 
     <Button
+        android:id="@+id/btn_confirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
