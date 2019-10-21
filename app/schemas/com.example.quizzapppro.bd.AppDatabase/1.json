@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c7f2dab572b61907e313fb43870e7883",
+    "identityHash": "56f72c18d4a7f82ca7b653004e083d45",
     "entities": [
       {
         "tableName": "pregunta",
@@ -174,7 +174,7 @@
       },
       {
         "tableName": "puntaje",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPuntaje` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `puntaje` INTEGER NOT NULL, `perfil_idJugador` INTEGER NOT NULL, `rendimiento` INTEGER NOT NULL, FOREIGN KEY(`perfil_idJugador`) REFERENCES `perfil`(`idJugador`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPuntaje` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `puntaje` INTEGER NOT NULL, `perfil_idJugador` INTEGER NOT NULL, `rendimiento` INTEGER NOT NULL, FOREIGN KEY(`perfil_idJugador`) REFERENCES `perfil`(`idJugador`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "idPuntaje",
@@ -211,7 +211,7 @@
         "foreignKeys": [
           {
             "table": "perfil",
-            "onDelete": "NO ACTION",
+            "onDelete": "CASCADE",
             "onUpdate": "NO ACTION",
             "columns": [
               "perfil_idJugador"
@@ -287,7 +287,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c7f2dab572b61907e313fb43870e7883')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '56f72c18d4a7f82ca7b653004e083d45')"
     ]
   }
 }
