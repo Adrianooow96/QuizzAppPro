@@ -255,7 +255,7 @@ class Activity3 : AppCompatActivity() {
                 current = (current + 1) % preguntas.size
                 updateQuestion()
             } else {
-                val intent = Intent(this, ScoreActivity::class.java)
+                val intent = Intent(this, FinishScoreActivity::class.java)
                 var puntaje = db.juegoDao().getTotalBuenas()*100
                 var performance = puntaje/preguntas.size
 

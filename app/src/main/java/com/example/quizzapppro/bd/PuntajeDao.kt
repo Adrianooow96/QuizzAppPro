@@ -17,6 +17,12 @@ interface PuntajeDao {
     @Query("SELECT * FROM puntaje WHERE idPuntaje=:id")
     fun getPuntajeById(id: Int): Puntaje
 
+    @Query("SELECT * FROM puntaje WHERE perfil_idJugador=:id")
+    fun getPuntajeByPErfilId(id: Int): Puntaje
+
+    @Query("SELECT max(puntaje) FROM puntaje")
+    fun getMaxPuntaje(): Int
+
     @Query("INSERT INTO puntaje(puntaje, perfil_idJugador, rendimiento) VALUES(:puntaje, :idJug, :rendimiento)")
     fun setPuntaje(puntaje: Int, idJug: Int, rendimiento : Int)
 }

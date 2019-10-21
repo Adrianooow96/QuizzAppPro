@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FinishScoreActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PUNTUACIÓN:"
+        android:layout_gravity="center"
+        android:paddingTop="30sp"
+        android:textSize="30sp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/actual_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="500"
+        android:layout_gravity="center"
+        android:paddingTop="10sp"
+        android:textSize="30sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tablero de puntuaciones"
+        android:layout_gravity="center"
+        android:paddingTop="40sp"
+        android:textSize="25sp"/>
+
+    <ListView
+        android:id="@+id/lv_scores"
+        android:layout_width="match_parent"
+        android:paddingTop="30sp"
+        android:layout_height="450sp" />
+
+
+</LinearLayout>

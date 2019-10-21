@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         profiles_button = findViewById(R.id.profiles_button)
 
         txtViewHighScore = findViewById(R.id.text_view_highscore)
-        loadHighscore()
+        loadHighscore(db.puntajeDao().getMaxPuntaje())
 
     if (countPerfles == 0) {
         play_button.isEnabled = false
@@ -98,9 +98,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadHighscore(){
-        val prefs = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
-        highscore = prefs.getInt(KEY_HIGHSCORE, 0)
+    private fun loadHighscore(highscore : Int){
         txtViewHighScore.setText("Highscore: $highscore")
     }
 
