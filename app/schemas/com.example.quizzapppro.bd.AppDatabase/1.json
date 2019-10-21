@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a6585d8d197526fc78107e8cf2270ad2",
+    "identityHash": "c7f2dab572b61907e313fb43870e7883",
     "entities": [
       {
         "tableName": "pregunta",
@@ -124,7 +124,7 @@
       },
       {
         "tableName": "juego",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idPregunta` INTEGER NOT NULL, `respondida` INTEGER NOT NULL, `respuesta` TEXT NOT NULL, `esActual` INTEGER NOT NULL, `usoPistas` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `idPregunta` INTEGER NOT NULL, `respondida` INTEGER NOT NULL, `respuesta` TEXT, `esActual` INTEGER NOT NULL, `usoPistas` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -148,7 +148,7 @@
             "fieldPath": "respuesta",
             "columnName": "respuesta",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "esActual",
@@ -167,7 +167,7 @@
           "columnNames": [
             "id"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -287,7 +287,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a6585d8d197526fc78107e8cf2270ad2')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c7f2dab572b61907e313fb43870e7883')"
     ]
   }
 }
