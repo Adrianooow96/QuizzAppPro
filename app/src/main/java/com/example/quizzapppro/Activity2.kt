@@ -35,6 +35,7 @@ class Activity2 : AppCompatActivity() {
     private lateinit var enableClues: Switch
     private var intSwitch = 0
     private val clue = arrayOf("1", "2", "3")
+    private var categories = 0b000000
 
     private val data: MutableList<Int> = mutableListOf<Int>()
 
@@ -97,14 +98,6 @@ class Activity2 : AppCompatActivity() {
         setResult(Activity.RESULT_CANCELED)
 
         numberSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
-        }
-
-        numberSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {
 
             }
@@ -129,10 +122,10 @@ class Activity2 : AppCompatActivity() {
                     "2" -> intSwitch = 2
                     "3" -> intSwitch = 3
                 }
-                perfil.numeroPistas = intSwitch
             } else {
                 perfil.numeroPistas = 0
             }
+            perfil.numeroPistas = intSwitch
         }
 
         validateData()
@@ -150,11 +143,20 @@ class Activity2 : AppCompatActivity() {
 
             perfil.totalPreguntas = numPreguntas
 
+            categories = 0
             for (x in checks){
                 if(x.isChecked){
-                    listaCategorias = listaCategorias.plus(x.text.toString())
+                    when(x){
+                        spanishCheckBox -> categories+=0b100000
+                        matCheckBox -> categories+=0b010000
+                        scienceCheckBox -> categories+=0b001000
+                        historyCheckBox -> categories+=0b000100
+                        geoCheckBox -> categories+=0b000010
+                        ethicCheckBox -> categories+=0b000001
+                    }
                 }
             }
+            perfil.categoriasElegidas = categories
 
             when (estatus.text)
             {
@@ -163,18 +165,11 @@ class Activity2 : AppCompatActivity() {
                 "Baja" -> perfil.dificultad = 0
             }
 
-            //perfil.dificultad = estatus.toString()
-
             setResult(Activity.RESULT_OK, intent)
             Toast.makeText(this,
                 "Cambios guardados.",
-                //numberSpinner.selectedItemPosition.toString(),
                 Toast.LENGTH_SHORT
                 ).show()
-            //startActivity(intent)
-
-            //startActivityForResult(intent, SCOREACTIVITY_REQUEST_CODE)
-
             db.perfilDao().updatePerfil(perfil)
         }
 
@@ -239,6 +234,7 @@ class Activity2 : AppCompatActivity() {
         for (x in 5..categoriesChecked * 5) {
             data.add(x)
         }
+        difficultySpinner.setSelection(categoriesChecked*5-5, true)
     }
 
     fun onCheckedChanged(view: View) {
