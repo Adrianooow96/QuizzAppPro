@@ -232,7 +232,8 @@ class Activity2 : AppCompatActivity() {
                 selectRadioButton.check(x.id)
             }
         }
-        if(numPistas == 0){
+        /*
+        if(intSwitch == 0){
             enableClues.setChecked(false)
             numberSpinner.isEnabled = false
         }
@@ -241,6 +242,8 @@ class Activity2 : AppCompatActivity() {
             numberSpinner.isEnabled = true
             numberSpinner.setSelection(numPistas-1)
         }
+
+         */
         difficultySpinner.setSelection(numPreguntas-5)
     }
 
