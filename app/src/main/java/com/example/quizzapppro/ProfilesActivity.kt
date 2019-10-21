@@ -32,9 +32,10 @@ class ProfilesActivity : AppCompatActivity() {
         lvProfiles = findViewById(R.id.list_view_profiles)
 
         profilesArrayList = db.perfilDao().getAll() as ArrayList<Perfil>
-
-        customAdapter = CustomAdapter(this, profilesArrayList)
-        lvProfiles.adapter = customAdapter
+        if(profilesArrayList.size != 0){
+            customAdapter = CustomAdapter(this, profilesArrayList)
+            lvProfiles.adapter = customAdapter
+        }
 
         lvProfiles.setOnItemClickListener { _, _, position, _ ->
             val selectedPerfil = profilesArrayList[position]
@@ -59,8 +60,9 @@ class ProfilesActivity : AppCompatActivity() {
         val db = AppDatabase.getAppDatabase(this)
 
         profilesArrayList = db.perfilDao().getAll() as ArrayList<Perfil>
-
-        customAdapter = CustomAdapter(this, profilesArrayList)
-        lvProfiles.adapter = customAdapter
+        if(profilesArrayList.size != 0){
+            customAdapter = CustomAdapter(this, profilesArrayList)
+            lvProfiles.adapter = customAdapter
+        }
     }
 }
