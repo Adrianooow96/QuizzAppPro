@@ -40,6 +40,7 @@ class EditProfileActivity : AppCompatActivity() {
         var perfilactual: Perfil = db.perfilDao().getCurrentPerfil()
 
         nombreEditText.setText(perfilactual.nombreJugador)
+        iconsRadioGroup.check(iconsRadioGroup.getChildAt(perfilactual.avatar).id)
 
 
 
