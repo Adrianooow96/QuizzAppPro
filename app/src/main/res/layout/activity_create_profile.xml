@@ -38,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingLeft="20sp"
         android:layout_gravity="left">
 
         <RadioGroup
@@ -55,31 +56,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
-                android:drawableStart="@drawable/ginjirotchi_radio" />
+                android:drawableStart="@drawable/hashizotchi_radio" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
-                android:drawableStart="@drawable/ginjirotchi_radio" />
+                android:drawableStart="@drawable/kuchipatchi_radio" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
-                android:drawableStart="@drawable/ginjirotchi_radio" />
+                android:drawableStart="@drawable/mametchi_radio" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
-                android:drawableStart="@drawable/ginjirotchi_radio" />
+                android:drawableStart="@drawable/mimitchi_radio" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
-                android:drawableStart="@drawable/ginjirotchi_radio" />
+                android:drawableStart="@drawable/pochitchi_radio" />
 
         </RadioGroup>
 
