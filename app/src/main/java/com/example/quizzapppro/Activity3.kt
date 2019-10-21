@@ -11,10 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
-import com.example.quizzapppro.bd.AppDatabase
-import com.example.quizzapppro.bd.Juego
-import com.example.quizzapppro.bd.Perfil
-import com.example.quizzapppro.bd.pregunta
+import com.example.quizzapppro.bd.*
 
 const val NUMBER_OF_PERFORMANCE = "com.example.quizzapppro.NUMBER_OF_PERFORMANCE"
 const val NUMBER_OF_SCORE = "com.example.quizzapppro.NUMBER_OF_SCORE"
@@ -257,23 +254,12 @@ class Activity3 : AppCompatActivity() {
             if (db.juegoDao().getTotalRespondidas() < preguntas.size) {
                 current = (current + 1) % preguntas.size
                 updateQuestion()
-                /*
-                var string : String = sharedPreference.getValueInt("best1").toString()
-                Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
-
-                 */
             } else {
-                //INTENT A SCOREACTIVITY
                 val intent = Intent(this, Activity4::class.java)
-                score = model.getScore()
+                var puntaje = db.juegoDao().getTotalBuenas()*100
+                var performance = puntaje/preguntas.size
 
-                var performance: Int
-                performance = model.getPerformance()
-
-                intent.putExtra(EXTRA_SCORE, score)
-                setResult(Activity.RESULT_OK, intent)
-                //intent.putExtra(NUMBER_OF_SCORE, score)
-                //intent.putExtra(NUMBER_OF_PERFORMANCE, performance)
+                db.puntajeDao().setPuntaje(puntaje, perfil.idJugador, performance)
 
                 startActivity(intent)
 

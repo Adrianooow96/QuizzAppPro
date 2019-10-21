@@ -21,6 +21,9 @@ interface JuegoDao {
     @Query ("SELECT count(*) FROM juego WHERE respondida != 0")
     fun getTotalRespondidas() : Int
 
+    @Query ("SELECT count(*) FROM juego WHERE respondida = 1")
+    fun getTotalBuenas() : Int
+
     @Query ("SELECT count(*) FROM juego WHERE usoPistas != 0")
     fun getTotalPistas() : Int
 
