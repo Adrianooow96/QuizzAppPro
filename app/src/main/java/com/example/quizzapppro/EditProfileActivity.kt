@@ -1,8 +1,8 @@
 package com.example.quizzapppro
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.quizzapppro.bd.AppDatabase
 import com.example.quizzapppro.bd.Perfil
 
