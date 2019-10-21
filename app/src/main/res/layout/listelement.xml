@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal" >
 
     <LinearLayout
-        android:layout_width="250sp"
+        android:layout_width="190sp"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
@@ -24,8 +24,7 @@
             android:textColor="@color/black"
             android:paddingTop="34sp"
             android:paddingBottom="34sp"
-            android:paddingLeft="40sp"
-            android:text="ayuda" />
+            android:text="aaa" />
 
     </LinearLayout>
 
@@ -44,5 +43,13 @@
         android:layout_marginTop="25sp"
         android:layout_marginBottom="25sp"
         android:src="@drawable/ic_delete_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/select"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="25sp"
+        android:layout_marginBottom="25sp"
+        android:src="@drawable/ic_check_black_24dp" />
 
 </LinearLayout>
