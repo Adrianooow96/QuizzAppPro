@@ -1,10 +1,12 @@
 package com.example.quizzapppro
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat.startActivity
 import com.example.quizzapppro.bd.AppDatabase
 import com.example.quizzapppro.bd.Perfil
 
@@ -66,6 +68,15 @@ class CustomAdapter(private val context : Context, private var profilesArrayList
             ).show()
             profilesArrayList = profilesArrayList.minus(profilesArrayList[position]) as ArrayList<Perfil>
             notifyDataSetChanged()
+        }
+
+        holder.btnEdit!!.setOnClickListener {
+            val intent = Intent(context,EditProfileActivity::class.java)
+            var selectedPerfil = db.perfilDao().getPerfilById(profilesArrayList[position].idJugador)
+            db.perfilDao().resetStatus()
+            selectedPerfil.status = 1
+            db.perfilDao().updatePerfil(selectedPerfil)
+            startActivity(context, intent, null)
         }
 
         return convertView

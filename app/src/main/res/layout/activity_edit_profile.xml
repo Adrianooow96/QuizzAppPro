@@ -21,7 +21,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/result_edit_text"
+        android:id="@+id/result_edit_text_e"
         android:gravity="center|bottom"
         android:ems="10"
         android:maxLength="3"
@@ -47,47 +47,48 @@
         android:layout_gravity="left">
 
         <RadioGroup
+            android:id="@+id/icons_radio_group_e"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/ginjirotchi_radio_button"
+                android:id="@+id/ginjirotchi_radio_button_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:drawableStart="@drawable/ginjirotchi_radio" />
 
             <RadioButton
-                android:id="@+id/hashizotchi_radio_button"
+                android:id="@+id/hashizotchi_radio_button_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:drawableStart="@drawable/hashizotchi_radio" />
 
             <RadioButton
-                android:id="@+id/kuchipatchi_radio_button"
+                android:id="@+id/kuchipatchi_radio_button_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:drawableStart="@drawable/kuchipatchi_radio" />
 
             <RadioButton
-                android:id="@+id/mametchi_radio_button"
+                android:id="@+id/mametchi_radio_button_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:drawableStart="@drawable/mametchi_radio" />
 
             <RadioButton
-                android:id="@+id/mimitchi_radio_button"
+                android:id="@+id/mimitchi_radio_button_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:drawableStart="@drawable/mimitchi_radio" />
 
             <RadioButton
-                android:id="@+id/pochitchi_radio_button"
+                android:id="@+id/pochitchi_radio_button_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
@@ -99,7 +100,7 @@
 
 
     <Button
-        android:id="@+id/btn_confirmar"
+        android:id="@+id/btn_confirmar_e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

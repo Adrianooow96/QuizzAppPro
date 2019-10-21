@@ -37,8 +37,9 @@ class ProfilesActivity : AppCompatActivity() {
             lvProfiles.adapter = customAdapter
         }
 
-        lvProfiles.setOnItemClickListener { _, _, position, _ ->
+        lvProfiles.setOnItemClickListener { parent, view, position, id ->
             val selectedPerfil = profilesArrayList[position]
+            Log.d("e","Touched")
             selectedPerfil.status = 1
             db.perfilDao().resetStatus()
             db.perfilDao().updatePerfil(selectedPerfil)
