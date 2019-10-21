@@ -47,7 +47,7 @@ class Activity2 : AppCompatActivity() {
         setContentView(R.layout.activity_2)
 
         val db = AppDatabase.getAppDatabase(this)
-        //val perfil: Perfil = db.perfilDao().getCurrentPerfil()
+        val perfil: Perfil = db.perfilDao().getCurrentPerfil()
 
         enableClues = findViewById(R.id.enable_clues)
 
@@ -116,6 +116,7 @@ class Activity2 : AppCompatActivity() {
                         "2" -> intSwitch = 2
                         "3" -> intSwitch = 3
                     }
+                    perfil.numeroPistas = intSwitch
                 }
             }
         }
@@ -127,13 +128,10 @@ class Activity2 : AppCompatActivity() {
                     "1" -> intSwitch = 1
                     "2" -> intSwitch = 2
                     "3" -> intSwitch = 3
-
                 }
-               // perfil.numeroPistas = intSwitch
+                perfil.numeroPistas = intSwitch
             } else {
-                intSwitch = 0
-
-                //perfil.numeroPistas = intSwitch
+                perfil.numeroPistas = 0
             }
         }
 
@@ -150,7 +148,7 @@ class Activity2 : AppCompatActivity() {
             listaCategorias = emptyList()
 
 
-            //perfil.totalPreguntas = difficultySpinner.selectedItem.toString().toInt()
+            perfil.totalPreguntas = numPreguntas
 
             for (x in checks){
                 if(x.isChecked){
@@ -158,19 +156,26 @@ class Activity2 : AppCompatActivity() {
                 }
             }
 
-           // perfil.dificultad = estatus.toString()
+            when (estatus.text)
+            {
+                "Alta" -> perfil.dificultad = 2
+                "Media" -> perfil.dificultad = 1
+                "Baja" -> perfil.dificultad = 0
+            }
+
+            //perfil.dificultad = estatus.toString()
 
             setResult(Activity.RESULT_OK, intent)
             Toast.makeText(this,
-               // "Cambios guardados.",
-                numberSpinner.selectedItemPosition.toString(),
+                "Cambios guardados.",
+                //numberSpinner.selectedItemPosition.toString(),
                 Toast.LENGTH_SHORT
                 ).show()
             //startActivity(intent)
 
             //startActivityForResult(intent, SCOREACTIVITY_REQUEST_CODE)
 
-           // db.perfilDao().updatePerfil(perfil)
+            db.perfilDao().updatePerfil(perfil)
         }
 
         checks = arrayListOf(

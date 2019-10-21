@@ -12,6 +12,7 @@ import com.example.quizzapppro.bd.Perfil
 
 class CustomAdapter(private val context : Context, private var profilesArrayList: ArrayList<Perfil>) : BaseAdapter() {
     val db = AppDatabase.getAppDatabase(context)
+    val perfil: Perfil = db.perfilDao().getCurrentPerfil()
 
     private val myImageList = intArrayOf(R.drawable.ginjirotchi, R.drawable.hashizotchi, R.drawable.kuchipatchi, R.drawable.mametchi, R.drawable.mimitchi, R.drawable.pochitchi)
 
@@ -61,20 +62,36 @@ class CustomAdapter(private val context : Context, private var profilesArrayList
         holder.pIcon!!.setImageResource(myImageList[profilesArrayList[position].avatar])
 
         holder.btnDelete!!.setOnClickListener {
-            db.perfilDao().deletePerfil(db.perfilDao().getPerfilById(profilesArrayList[position].idJugador))
-            Toast.makeText(
-                context,
-                "Perfil eliminado.",
-                Toast.LENGTH_SHORT
-            ).show()
-            profilesArrayList = profilesArrayList.minus(profilesArrayList[position]) as ArrayList<Perfil>
-            notifyDataSetChanged()
+            val countPerfles : Int = db.perfilDao().countPerfiles()
+            if(countPerfles > 1) {
+                db.perfilDao()
+                    .deletePerfil(db.perfilDao().getPerfilById(profilesArrayList[position].idJugador))
+                Toast.makeText(
+                    context,
+                    "Perfil eliminado.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                profilesArrayList =
+                    profilesArrayList.minus(profilesArrayList[position]) as ArrayList<Perfil>
+                notifyDataSetChanged()
+            }
+            else
+            {
+                Toast.makeText(
+                    context,
+                    "No puedes eliminar tu único perfil.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
         holder.btnEdit!!.setOnClickListener {
-            val intent = Intent(context, EditProfileActivity::class.java)
-
-            startActivity(context,intent,null)
+            val intent = Intent(context,EditProfileActivity::class.java)
+            var selectedPerfil = db.perfilDao().getPerfilById(profilesArrayList[position].idJugador)
+            db.perfilDao().resetStatus()
+            selectedPerfil.status = 1
+            db.perfilDao().updatePerfil(selectedPerfil)
+            startActivity(context, intent, null)
         }
 
         holder.btnSelect!!.setOnClickListener {
