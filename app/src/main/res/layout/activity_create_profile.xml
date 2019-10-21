@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingTop="100sp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".CreateProfileActivity">
 
     <TextView
@@ -24,50 +24,72 @@
         android:gravity="center|bottom"
         android:ems="10"
         android:maxLength="3"
-        android:hint="3 caracteres"/>
+        android:hint="3 caracteres" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona un avatar"
+        android:textSize="32sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"/>
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100sp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="left">
 
-        <ImageView
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:src="@drawable/ginjirotchi"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:src="@drawable/hashizotchi" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/ginjirotchi_radio" />
 
-        <ImageView
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:src="@drawable/kuchipatchi" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/ginjirotchi_radio" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/ginjirotchi_radio" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/ginjirotchi_radio" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/ginjirotchi_radio" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/ginjirotchi_radio" />
+
+        </RadioGroup>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100sp">
 
-        <ImageView
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:src="@drawable/mametchi" />
-
-        <ImageView
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:src="@drawable/mimitchi"
-            />
-
-        <ImageView
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:src="@drawable/pochitchi" />
-
-    </LinearLayout>
-
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Confirmar" />
 
 </LinearLayout>
