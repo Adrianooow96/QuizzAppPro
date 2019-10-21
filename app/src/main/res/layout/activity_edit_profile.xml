@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".EditProfileActivity">
+
+    <TextView
+        android:id="@+id/tv_alias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escribe tu alias"
+        android:textSize="32sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/result_edit_text"
+        android:gravity="center|bottom"
+        android:ems="10"
+        android:maxLength="3"
+        android:hint="3 caracteres" />
+
+    <TextView
+        android:id="@+id/tv_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona un avatar"
+        android:layout_marginTop="20sp"
+        android:textSize="32sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"/>
+
+    <HorizontalScrollView
+        android:id="@+id/rg_iconos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20sp"
+        android:layout_marginTop="20sp"
+        android:layout_gravity="left">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/ginjirotchi_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/ginjirotchi_radio" />
+
+            <RadioButton
+                android:id="@+id/hashizotchi_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/hashizotchi_radio" />
+
+            <RadioButton
+                android:id="@+id/kuchipatchi_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/kuchipatchi_radio" />
+
+            <RadioButton
+                android:id="@+id/mametchi_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/mametchi_radio" />
+
+            <RadioButton
+                android:id="@+id/mimitchi_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/mimitchi_radio" />
+
+            <RadioButton
+                android:id="@+id/pochitchi_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:drawableStart="@drawable/pochitchi_radio" />
+
+        </RadioGroup>
+
+    </HorizontalScrollView>
+
+
+    <Button
+        android:id="@+id/btn_confirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Guardar Cambios"
+        android:layout_marginTop="20sp"/>
+
+</LinearLayout>
