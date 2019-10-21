@@ -47,6 +47,7 @@
         android:layout_gravity="left">
 
         <RadioGroup
+            android:id="@+id/icons_radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

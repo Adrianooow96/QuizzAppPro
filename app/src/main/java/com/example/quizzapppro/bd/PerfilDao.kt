@@ -20,9 +20,15 @@ interface PerfilDao {
     @Query("SELECT * FROM perfil ORDER BY idJugador")
     fun getAll(): List<Perfil>
 
+    @Query("SELECT nombreJugador FROM perfil")
+    fun getAllNames(): List<String>
+
     @Query("SELECT * FROM perfil WHERE status = 1")
     fun getCurrentPerfil() : Perfil
 
     @Query("SELECT COUNT(*) FROM perfil")
     fun countPerfiles() : Int
+
+    @Query("INSERT INTO perfil(nombreJugador, avatar, totalPreguntas, dificultad, numeroPistas, categoriasElegidas, status) VALUES (:nombre, :icon, 15, 1, 0, '111111', 0)")
+    fun createNewPerfil(nombre : String, icon : Int)
 }

@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
@@ -29,9 +30,7 @@ class ProfilesActivity : AppCompatActivity() {
         btnCreateProfile = findViewById(R.id.createProfile_button)
         lvProfiles = findViewById(R.id.list_view_profiles)
 
-        profilesArrayList = arrayListOf(Perfil(0, "AGC", 0, 5,"media", 0, "100000", 0),
-                                        Perfil(1, "MCS", 1, 5,"media", 0, "100100", 0),
-                                        Perfil(2, "MCM", 3, 5,"media", 0, "110000", 0))
+        profilesArrayList = db.perfilDao().getAll() as ArrayList<Perfil>
 
         customAdapter = CustomAdapter(this, profilesArrayList)
         lvProfiles.adapter = customAdapter
@@ -45,5 +44,16 @@ class ProfilesActivity : AppCompatActivity() {
 
     companion object {
         lateinit var profilesArrayList: ArrayList<Perfil>
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("a","resumed")
+        val db = AppDatabase.getAppDatabase(this)
+
+        profilesArrayList = db.perfilDao().getAll() as ArrayList<Perfil>
+
+        customAdapter = CustomAdapter(this, profilesArrayList)
+        lvProfiles.adapter = customAdapter
     }
 }

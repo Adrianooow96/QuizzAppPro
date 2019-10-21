@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.example.quizzapppro.bd.AppDatabase
 import com.example.quizzapppro.bd.Perfil
 
-class CustomAdapter(private val context : Context, private val profilesArrayList: ArrayList<Perfil>) : BaseAdapter() {
+class CustomAdapter(private val context : Context, private var profilesArrayList: ArrayList<Perfil>) : BaseAdapter() {
+    val db = AppDatabase.getAppDatabase(context)
 
     private val myImageList = intArrayOf(R.drawable.ginjirotchi, R.drawable.hashizotchi, R.drawable.kuchipatchi, R.drawable.mametchi, R.drawable.mimitchi, R.drawable.pochitchi)
 
@@ -54,6 +56,17 @@ class CustomAdapter(private val context : Context, private val profilesArrayList
 
         holder.tvNick!!.setText(profilesArrayList[position].nombreJugador)
         holder.pIcon!!.setImageResource(myImageList[profilesArrayList[position].avatar])
+
+        holder.btnDelete!!.setOnClickListener {
+            db.perfilDao().deletePerfil(db.perfilDao().getPerfilById(profilesArrayList[position].idJugador))
+            Toast.makeText(
+                context,
+                "Perfil eliminado.",
+                Toast.LENGTH_SHORT
+            ).show()
+            profilesArrayList = profilesArrayList.minus(profilesArrayList[position]) as ArrayList<Perfil>
+            notifyDataSetChanged()
+        }
 
         return convertView
     }
