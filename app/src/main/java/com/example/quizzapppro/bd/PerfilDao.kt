@@ -31,4 +31,7 @@ interface PerfilDao {
 
     @Query("INSERT INTO perfil(nombreJugador, avatar, totalPreguntas, dificultad, numeroPistas, categoriasElegidas, status) VALUES (:nombre, :icon, 15, 1, 0, '111111', 0)")
     fun createNewPerfil(nombre : String, icon : Int)
+
+    @Query("UPDATE perfil SET 'status'=0")
+    fun resetStatus()
 }
