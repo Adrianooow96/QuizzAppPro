@@ -38,12 +38,8 @@ class ProfilesActivity : AppCompatActivity() {
 
 
         btnCreateProfile.setOnClickListener {
-
-            /*
-            val intent = Intent(this, NewProfileActivity::class.java)
+            val intent = Intent(this, CreateProfileActivity::class.java)
             startActivity(intent)
-             */
-
         }
     }
 
