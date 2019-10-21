@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
@@ -35,6 +36,12 @@ class ProfilesActivity : AppCompatActivity() {
         customAdapter = CustomAdapter(this, profilesArrayList)
         lvProfiles.adapter = customAdapter
 
+        lvProfiles.setOnItemClickListener { _, _, position, _ ->
+            val selectedPerfil = profilesArrayList[position]
+            selectedPerfil.status = 1
+            db.perfilDao().resetStatus()
+            db.perfilDao().updatePerfil(selectedPerfil)
+        }
 
         btnCreateProfile.setOnClickListener {
             val intent = Intent(this, CreateProfileActivity::class.java)
