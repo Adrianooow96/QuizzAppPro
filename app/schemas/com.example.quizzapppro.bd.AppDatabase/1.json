@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "48928e41cb9c5906ea4a20cdebc01246",
+    "identityHash": "c8b4ebaf8ef74950b4c88f277e28bafb",
     "entities": [
       {
         "tableName": "pregunta",
@@ -57,21 +57,12 @@
           ],
           "autoGenerate": false
         },
-        "indices": [
-          {
-            "name": "index_pregunta_idPregunta",
-            "unique": true,
-            "columnNames": [
-              "idPregunta"
-            ],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_pregunta_idPregunta` ON `${TABLE_NAME}` (`idPregunta`)"
-          }
-        ],
+        "indices": [],
         "foreignKeys": []
       },
       {
         "tableName": "perfil",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idJugador` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombreJugador` TEXT NOT NULL, `avatar` INTEGER NOT NULL, `totalPreguntas` INTEGER NOT NULL, `dificultad` TEXT NOT NULL, `numeroPistas` INTEGER NOT NULL, `categoriasElegidas` TEXT NOT NULL, `status` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idJugador` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombreJugador` TEXT NOT NULL, `avatar` INTEGER NOT NULL, `totalPreguntas` INTEGER NOT NULL, `dificultad` INTEGER NOT NULL, `numeroPistas` INTEGER NOT NULL, `categoriasElegidas` TEXT NOT NULL, `status` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "idJugador",
@@ -100,7 +91,7 @@
           {
             "fieldPath": "dificultad",
             "columnName": "dificultad",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -230,12 +221,73 @@
             ]
           }
         ]
+      },
+      {
+        "tableName": "categoria_catalogo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idCategoria` INTEGER NOT NULL, `nombreCategoria` TEXT NOT NULL, PRIMARY KEY(`idCategoria`))",
+        "fields": [
+          {
+            "fieldPath": "idCategoria",
+            "columnName": "idCategoria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombreCategoria",
+            "columnName": "nombreCategoria",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idCategoria"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "dificultad_catalogo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idDificultad` INTEGER NOT NULL, `nombreDificultad` TEXT NOT NULL, PRIMARY KEY(`idDificultad`))",
+        "fields": [
+          {
+            "fieldPath": "idDificultad",
+            "columnName": "idDificultad",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombreDificultad",
+            "columnName": "nombreDificultad",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idDificultad"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_dificultad_catalogo_idDificultad",
+            "unique": true,
+            "columnNames": [
+              "idDificultad"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_dificultad_catalogo_idDificultad` ON `${TABLE_NAME}` (`idDificultad`)"
+          }
+        ],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '48928e41cb9c5906ea4a20cdebc01246')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c8b4ebaf8ef74950b4c88f277e28bafb')"
     ]
   }
 }
