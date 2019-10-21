@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="top"
     tools:context=".ProfilesActivity">
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:paddingTop="20sp"
     android:gravity="end" >
 
     <Button
@@ -24,7 +25,7 @@
     <ListView
         android:id="@+id/list_view_profiles"
         android:layout_width="match_parent"
-        android:layout_height="300sp" />
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

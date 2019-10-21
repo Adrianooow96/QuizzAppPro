@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100sp"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -11,9 +11,10 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:src="@drawable/ginjirotchi" />
+            android:layout_width="110sp"
+            android:layout_height="110sp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mametchi" />
 
         <TextView
             android:id="@+id/nick"
@@ -21,8 +22,8 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:textColor="@color/black"
-            android:paddingTop="31sp"
-            android:paddingBottom="31sp"
+            android:paddingTop="34sp"
+            android:paddingBottom="34sp"
             android:paddingLeft="40sp"
             android:text="ayuda" />
 
@@ -32,16 +33,16 @@
         android:id="@+id/edit"
         android:layout_width="60sp"
         android:layout_height="60sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginBottom="20sp"
+        android:layout_marginTop="25sp"
+        android:layout_marginBottom="25sp"
         android:src="@drawable/ic_edit_black_24dp"/>
 
     <ImageButton
         android:id="@+id/delete"
         android:layout_width="60sp"
         android:layout_height="60sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginBottom="20sp"
+        android:layout_marginTop="25sp"
+        android:layout_marginBottom="25sp"
         android:src="@drawable/ic_delete_black_24dp" />
 
 </LinearLayout>
