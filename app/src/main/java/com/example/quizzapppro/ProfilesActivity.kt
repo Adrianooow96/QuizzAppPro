@@ -30,19 +30,12 @@ class ProfilesActivity : AppCompatActivity() {
 
         btnCreateProfile = findViewById(R.id.createProfile_button)
         lvProfiles = findViewById(R.id.list_view_profiles)
+        lvProfiles.setItemsCanFocus(false)
 
         profilesArrayList = db.perfilDao().getAll() as ArrayList<Perfil>
         if(profilesArrayList.size != 0){
             customAdapter = CustomAdapter(this, profilesArrayList)
             lvProfiles.adapter = customAdapter
-        }
-
-        lvProfiles.setOnItemClickListener { parent, view, position, id ->
-            val selectedPerfil = profilesArrayList[position]
-            Log.d("e","Touched")
-            selectedPerfil.status = 1
-            db.perfilDao().resetStatus()
-            db.perfilDao().updatePerfil(selectedPerfil)
         }
 
         btnCreateProfile.setOnClickListener {
