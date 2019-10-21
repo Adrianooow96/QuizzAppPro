@@ -64,8 +64,7 @@ class CustomAdapter(private val context : Context, private var profilesArrayList
         holder.btnDelete!!.setOnClickListener {
             val countPerfles : Int = db.perfilDao().countPerfiles()
             if(countPerfles > 1) {
-                db.perfilDao()
-                    .deletePerfil(db.perfilDao().getPerfilById(profilesArrayList[position].idJugador))
+                db.perfilDao().deletePerfil(db.perfilDao().getPerfilById(profilesArrayList[position].idJugador))
                 Toast.makeText(
                     context,
                     "Perfil eliminado.",
