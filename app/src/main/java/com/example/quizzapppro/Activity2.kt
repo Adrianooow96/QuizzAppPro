@@ -75,9 +75,7 @@ class Activity2 : AppCompatActivity() {
         when (perfil.numeroPistas)
         {
             0-> enableClues.isChecked = false
-            1 -> enableClues.isChecked = true
-            2 -> enableClues.isChecked = true
-            3 -> enableClues.isChecked = true
+            1,2,3 -> enableClues.isChecked = true
         }
 
         for (x in 5..(categoriesChecked * 5)) {
