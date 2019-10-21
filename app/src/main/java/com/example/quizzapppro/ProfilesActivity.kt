@@ -16,6 +16,8 @@ class ProfilesActivity : AppCompatActivity() {
 
     private lateinit var btnCreateProfile: Button
     private lateinit var lvProfiles: ListView
+    private lateinit var customAdapter: CustomAdapter
+    private lateinit var profilesArrayList: ArrayList<Perfil>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,19 +29,21 @@ class ProfilesActivity : AppCompatActivity() {
         btnCreateProfile = findViewById(R.id.createProfile_button)
         lvProfiles = findViewById(R.id.list_view_profiles)
 
-        val listItems = listOf<Perfil>(Perfil(0, "AGC", 1, 5,"media", 0, "Español", 1),
-            Perfil(1, "MCS", 1, 5,"media", 0, "Español", 1),
-            Perfil(2, "MCM", 1, 5,"media", 0, "Español", 1))
+        profilesArrayList = arrayListOf(Perfil(0, "AGC", 0, 5,"media", 0, "100000", 0),
+                                        Perfil(1, "MCS", 1, 5,"media", 0, "100100", 0),
+                                        Perfil(2, "MCM", 3, 5,"media", 0, "110000", 0))
 
+        customAdapter = CustomAdapter(this, profilesArrayList)
+        lvProfiles.adapter = customAdapter
 
 
         btnCreateProfile.setOnClickListener {
-
-            /*
-            val intent = Intent(this, NewProfileActivity::class.java)
+            val intent = Intent(this, CreateProfileActivity::class.java)
             startActivity(intent)
-             */
-
         }
+    }
+
+    companion object {
+        lateinit var profilesArrayList: ArrayList<Perfil>
     }
 }

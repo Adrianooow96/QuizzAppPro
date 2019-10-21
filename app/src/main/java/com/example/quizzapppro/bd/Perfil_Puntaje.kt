@@ -2,7 +2,7 @@ package com.example.quizzapppro.bd
 
 import androidx.room.*
 
-@Entity
+@Entity(tableName = "perfil_puntaje")
 data class Perfil_Puntaje (
     @field:ColumnInfo(name = "id") val id: Int,
     @field:ColumnInfo(name = "idJugador") val idJugador: Int,
@@ -19,13 +19,3 @@ data class Perfil_Puntaje (
     @field:ColumnInfo(name = "rendimiento") var rendimiento: Int
 )
 
-@Dao
-interface Perfil_PuntajeDao {
-    @Query("SELECT puntaje FROM perfil_puntaje WHERE numeroPistas = 0 ORDER BY puntaje")
-    fun getListScoresLegit(): List<Int>
-    @Query("SELECT puntaje FROM perfil_puntaje WHERE numeroPistas > 0 ORDER BY puntaje")
-    fun getListScoresCheats(): List<Int>
-
-
-
-}

@@ -9,13 +9,11 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-        pregunta::class//, Perfil::class, Juego::class,Puntaje::class
+        pregunta::class, Perfil::class, Juego::class,Puntaje::class,Categoria_catalogo::class,Dificultad_Catalogo::class
     ], version = 1
 )
 
 abstract class AppDatabase : RoomDatabase() {
-
-    abstract fun getPregunta() :pregunta
 
     abstract fun perfilDao() : PerfilDao
     abstract fun juegoDao() : JuegoDao
@@ -48,7 +46,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun initializeData(db: SupportSQLiteDatabase) {
             //db.beginTransaction();
-/*
+
             db.execSQL("INSERT INTO categoria_catalogo VALUES (0, 'Español')")
             db.execSQL("INSERT INTO categoria_catalogo VALUES (1, 'Matemáticas')")
             db.execSQL("INSERT INTO categoria_catalogo VALUES (2, 'Ciencias')")
@@ -59,9 +57,8 @@ abstract class AppDatabase : RoomDatabase() {
             db.execSQL("INSERT INTO dificultad_catalogo VALUES (0, 'Fácil')")
             db.execSQL("INSERT INTO dificultad_catalogo VALUES (1, 'Medio')")
             db.execSQL("INSERT INTO dificultad_catalogo VALUES (2, 'Difícil')")
-*/
-            db.execSQL("INSERT INTO pregunta(idPregunta,pregunta,categoria, respuestaCorrecta,opcion1,opcion2,opcion3) VALUES (0, 'Para organizar los acontecimientos históricos de un relato podemos utilizar:', 0, 'Palabras o frases que indiquen tiempo', 'Sustantivos', 'Verbos conjugados en futuro', 'Oraciones tópico')")
-            /*
+
+            db.execSQL("INSERT INTO pregunta VALUES (0, 'Para organizar los acontecimientos históricos de un relato podemos utilizar:', 0, 'Palabras o frases que indiquen tiempo', 'Sustantivos', 'Verbos conjugados en futuro', 'Oraciones tópico')")
             db.execSQL("INSERT INTO pregunta VALUES (1, 'Son dichos agudos y sentenciosos, de uso popular:', 0, 'Refranes', 'Chistes', 'Fábulas', 'Poemas')")
             db.execSQL("INSERT INTO pregunta VALUES (2, 'Es una característica de las fábulas:', 0, 'Señalan los defectos humanos', 'Explicar el origen del mundo', 'Finalizar con una pregunta', 'Utilizar personajes fantasmagóricos')")
             db.execSQL("INSERT INTO pregunta VALUES (3, 'La moraleja es:', 0, 'La enseñanza o lección que se deduce de una fábula', 'La opinión acerca de cómo está escrita la fábula', 'La forma en la que debemos actuar siempre', 'Lo que dice uno de los personajes al iniciar la fábula')")
@@ -97,7 +94,7 @@ abstract class AppDatabase : RoomDatabase() {
             db.execSQL("INSERT INTO pregunta VALUES (27, 'Cuando una persona muestra fortaleza ante las adversidades, se dice que es:', 5, 'Resiliente', 'Madura', 'Ruda', 'Resistente')")
             db.execSQL("INSERT INTO pregunta VALUES (28, 'Es una acción que contribuye a un proyecto de vida sano y seguro:', 5, 'Comer tranquilamente', 'Comer más rápido', 'Comer menos', 'No desayunar')")
             db.execSQL("INSERT INTO pregunta VALUES (29, 'Es cuando se menosprecia o se humilla a las personas por sus características y capacidades:', 5, 'Discriminación', 'Adversidad', 'Procrastinación', 'Diversidad')")
-*/
+
         }
     }
 
