@@ -18,7 +18,7 @@ import com.example.quizzapppro.bd.pregunta
 
 
 var listaCategorias : List<String> = listOf("Espanol", "Matemáticas", "Ciencias", "Historia", "Geografia", "Cívica")
-var numPreguntas = 18
+//var numPreguntas = 18
 var dificultad : String = "Media"
 var numPistas : Int = 0
 const val REQUEST_CODE_QUIZ = 1

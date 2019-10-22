@@ -42,6 +42,7 @@ class Activity2 : AppCompatActivity() {
     private val data: MutableList<Int> = mutableListOf<Int>()
 
     private lateinit var btnTry: Button
+    private var totalpreguntas = 0
 
 
 
@@ -140,9 +141,10 @@ class Activity2 : AppCompatActivity() {
             data.add(x)
         }
 
+
         difficultySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
-
+                 totalpreguntas = difficultySpinner.selectedItem.toString().toInt()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -203,7 +205,7 @@ class Activity2 : AppCompatActivity() {
             perfil.numeroPistas = intSwitch
 
 
-            perfil.totalPreguntas = numPreguntas
+            perfil.totalPreguntas = totalpreguntas
 
             categories = 0
             for (x in checks){

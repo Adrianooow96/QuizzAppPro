@@ -54,6 +54,7 @@ class customScoreAdapter(private val context : Context, private var scoresArrayL
         holder.tvNick!!.setText(perfil.nombreJugador)
         holder.tvScore!!.setText(scoresArrayList[position].puntaje.toString())
         holder.pIcon!!.setImageResource(myImageList[perfil.avatar])
+
         if(perfil.numeroPistas > 0){
             holder.iconTrampa!!.setImageResource(R.drawable.tarakotchi_original)
         }
