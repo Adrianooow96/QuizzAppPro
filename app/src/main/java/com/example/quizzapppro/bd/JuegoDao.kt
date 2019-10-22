@@ -15,11 +15,20 @@ interface JuegoDao {
     @Query ("DELETE FROM juego")
     fun deleteAll()
 
+    @Query ("SELECT id FROM juego")
+    fun getAll() : List<Int>
+
     @Query ("SELECT * FROM juego WHERE id=:id")
     fun getJuegoById(id: Int) : Juego
 
     @Query ("SELECT count(*) FROM juego WHERE respondida != 0")
     fun getTotalRespondidas() : Int
+
+    @Query ("SELECT id FROM juego WHERE esActual = 1")
+    fun getActual() : Int
+
+    @Query ("UPDATE juego SET 'esActual'=0")
+    fun resetActual()
 
     @Query ("SELECT count(*) FROM juego WHERE respondida = 1")
     fun getTotalBuenas() : Int

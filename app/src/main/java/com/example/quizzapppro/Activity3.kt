@@ -32,6 +32,8 @@ class Activity3 : AppCompatActivity() {
 
     private lateinit var tvPistas: TextView
 
+    private lateinit var tvPreguntita: TextView
+
     private lateinit var tvPreguntaActual: TextView
 
     private lateinit var btnPrimeraOpcion: Button
@@ -54,7 +56,7 @@ class Activity3 : AppCompatActivity() {
     private lateinit var opciones: List<Button>
 
     private fun prepareGame(perfil: Perfil) {
-        db.juegoDao().deleteAll()
+
 
         if ((perfil.categoriasElegidas and 1) == 1) {
             preguntas += db.preguntaDao().getAllEthics()
@@ -142,6 +144,8 @@ class Activity3 : AppCompatActivity() {
         btnPista.isEnabled = pistasUsadas < perfil.numeroPistas
         tvPistas.setText("Pistas usadas:"+pistasUsadas+"/"+perfil.numeroPistas)
 
+        tvPreguntita.setText("Pregunta:"+(preguntaActual.id+1)+"/"+preguntas.size)
+
         tvPreguntaActual.setText(preguntaDatos.pregunta)
 
         if (preguntaActual.usoPistas == 1) {
@@ -183,7 +187,7 @@ class Activity3 : AppCompatActivity() {
             btnCuartaOpcion.visibility = View.VISIBLE
 
             when (perfil.dificultad) {
-                0 -> {
+                2 -> {
                     var respuestas = listOf<String>(
                         preguntaDatos.respuestaCorrecta,
                         preguntaDatos.opcion1
@@ -206,7 +210,7 @@ class Activity3 : AppCompatActivity() {
                     btnTerceraOpcion.setText(respuestas.get(2))
                     btnCuartaOpcion.visibility = View.GONE
                 }
-                2 -> {
+                0 -> {
                     var respuestas = listOf<String>(
                         preguntaDatos.respuestaCorrecta,
                         preguntaDatos.opcion1,
@@ -231,10 +235,19 @@ class Activity3 : AppCompatActivity() {
 
         val db = AppDatabase.getAppDatabase(this)
         val perfil: Perfil = db.perfilDao().getCurrentPerfil()
+        current = if(db.juegoDao().getActual() >0){
+            preguntas = db.juegoDao().getAll()
+            db.juegoDao().getActual()
+        } else{
+            db.juegoDao().deleteAll()
+            prepareGame(perfil)
+            0
+        }
 
-        prepareGame(perfil)
         preguntaActual = db.juegoDao().getJuegoById(current)
         preguntaDatos = db.preguntaDao().getPregunta(preguntaActual.idPregunta)
+
+        tvPreguntita =findViewById(R.id.num_pregunta_text_view)
 
         tvPistas = findViewById(R.id.pistas_usadas_text_view)
         tvPreguntaActual = findViewById(R.id.pregunta_actual_text_view)
@@ -279,6 +292,9 @@ class Activity3 : AppCompatActivity() {
 
 
     private fun finishQuiz() {
+        db.juegoDao().resetActual()
+        preguntaActual.esActual = 1
+        db.juegoDao().updateJuego(preguntaActual)
         finish()
     }
 
