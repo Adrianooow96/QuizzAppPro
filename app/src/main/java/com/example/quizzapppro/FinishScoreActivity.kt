@@ -12,7 +12,7 @@ import android.content.Intent
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
+import android.widget.ImageView
 
 
 class FinishScoreActivity : AppCompatActivity() {
@@ -22,6 +22,8 @@ class FinishScoreActivity : AppCompatActivity() {
     private lateinit var tvScore: TextView
     private lateinit var scoresArrayList : ArrayList<Puntaje>
     private var backPressedTime: Long = 0
+    private lateinit var rendimientoImg : ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,17 +33,26 @@ class FinishScoreActivity : AppCompatActivity() {
         val db = AppDatabase.getAppDatabase(this)
         var perfil = db.perfilDao().getCurrentPerfil()
         var puntaje = db.puntajeDao().getPuntajeByPErfilId(perfil.idJugador)
+        var rendimiento = puntaje.rendimiento
 
         lvScores = findViewById(R.id.lv_scores)
         tvScore = findViewById(R.id.actual_score)
-
         tvScore.setText(puntaje.puntaje.toString())
+        rendimientoImg = findViewById(R.id.rendimiento_img)
 
         scoresArrayList = db.puntajeDao().getAllOrdered() as ArrayList<Puntaje>
         if(scoresArrayList.size != 0){
             customAdapter = customScoreAdapter(this, scoresArrayList)
             lvScores.adapter = customAdapter
         }
+
+        when{
+            rendimiento <= 50 -> rendimientoImg.setImageResource(R.drawable.stupid)
+            rendimiento in 51..69 -> rendimientoImg.setImageResource(R.drawable.meh)
+            rendimiento in 70..99 -> rendimientoImg.setImageResource(R.drawable.flame)
+            rendimiento == 100 -> rendimientoImg.setImageResource(R.drawable.trophy)
+        }
+
     }
 
     companion object {
