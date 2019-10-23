@@ -37,6 +37,6 @@ interface JuegoDao {
     fun getTotalPistas() : Int
 
     @Query ("INSERT INTO juego(id, idPregunta, respondida, esActual, usoPistas) VALUES(:id, :idPregunta, 0, 0, 0)")
-    fun insertRow(idPregunta: Int,id: Int )
+    fun insertRow(idPregunta: Int,id: Int)
 
 }

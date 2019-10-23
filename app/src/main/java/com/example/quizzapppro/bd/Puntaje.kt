@@ -14,5 +14,6 @@ data class Puntaje (
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "idPuntaje") val idPuntaje: Int,
     @field:ColumnInfo(name = "puntaje") var puntaje: Int,
     @field:ColumnInfo(name = "perfil_idJugador") val perfil_idJugador: Int,
-    @field:ColumnInfo(name = "rendimiento") var rendimiento: Int
+    @field:ColumnInfo(name = "rendimiento") var rendimiento: Int,
+    @field:ColumnInfo(name = "cheated") var cheated: Int
 )

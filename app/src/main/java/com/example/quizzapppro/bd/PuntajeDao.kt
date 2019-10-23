@@ -11,6 +11,9 @@ interface PuntajeDao {
     @Query("SELECT * FROM puntaje ORDER BY puntaje")
     fun getAll(): List<Puntaje>
 
+    @Query ("SELECT * FROM puntaje WHERE idPuntaje =(SELECT MAX (idPuntaje) FROM puntaje)")
+    fun getLastPuntaje() : Puntaje
+
     @Query("SELECT * FROM puntaje ORDER BY puntaje DESC")
     fun getAllOrdered(): List<Puntaje>
 
@@ -23,6 +26,6 @@ interface PuntajeDao {
     @Query("SELECT max(puntaje) FROM puntaje")
     fun getMaxPuntaje(): Int
 
-    @Query("INSERT INTO puntaje(puntaje, perfil_idJugador, rendimiento) VALUES(:puntaje, :idJug, :rendimiento)")
-    fun setPuntaje(puntaje: Int, idJug: Int, rendimiento : Int)
+    @Query("INSERT INTO puntaje(puntaje, perfil_idJugador, rendimiento, cheated) VALUES(:puntaje, :idJug, :rendimiento, :cheated)")
+    fun setPuntaje(puntaje: Int, idJug: Int, rendimiento : Int, cheated: Int )
 }

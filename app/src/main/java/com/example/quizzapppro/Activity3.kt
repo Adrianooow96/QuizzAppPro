@@ -272,7 +272,7 @@ class Activity3 : AppCompatActivity() {
                 var puntaje = db.juegoDao().getTotalBuenas()*100
                 var performance = puntaje/preguntas.size
 
-                db.puntajeDao().setPuntaje(puntaje, perfil.idJugador, performance)
+                db.puntajeDao().setPuntaje(puntaje, perfil.idJugador, performance, if(perfil.numeroPistas==0){0}else{1})
 
                 startActivity(intent)
 

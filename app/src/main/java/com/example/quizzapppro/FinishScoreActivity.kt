@@ -28,14 +28,12 @@ class FinishScoreActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish_score)
 
-
-        var perfil = db.perfilDao().getCurrentPerfil()
-        var puntaje = db.puntajeDao().getPuntajeByPErfilId(perfil.idJugador)
+        var puntaje = db.puntajeDao().getLastPuntaje()
         var rendimiento = puntaje.rendimiento
 
         lvScores = findViewById(R.id.lv_scores)
         tvScore = findViewById(R.id.actual_score)
-        tvScore.setText(puntaje.puntaje.toString())
+        tvScore.text = puntaje.puntaje.toString()
         rendimientoImg = findViewById(R.id.rendimiento_img)
 
         scoresArrayList = db.puntajeDao().getAllOrdered() as ArrayList<Puntaje>
@@ -53,18 +51,13 @@ class FinishScoreActivity : AppCompatActivity() {
 
     }
 
-    companion object {
-        lateinit var scoresArrayList: ArrayList<Puntaje>
-    }
-
-
     override fun onBackPressed() {
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             val intent = Intent(applicationContext, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             intent.putExtra("EXIT", true)
-            startActivity(intent)
             db.juegoDao().deleteAll()
+            startActivity(intent)
         } else {
             Toast.makeText(
                 this,
