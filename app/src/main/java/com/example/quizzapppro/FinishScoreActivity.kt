@@ -23,14 +23,12 @@ class FinishScoreActivity : AppCompatActivity() {
     private lateinit var scoresArrayList : ArrayList<Puntaje>
     private var backPressedTime: Long = 0
     private lateinit var rendimientoImg : ImageView
-
-
+    val db = AppDatabase.getAppDatabase(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish_score)
 
 
-        val db = AppDatabase.getAppDatabase(this)
         var perfil = db.perfilDao().getCurrentPerfil()
         var puntaje = db.puntajeDao().getPuntajeByPErfilId(perfil.idJugador)
         var rendimiento = puntaje.rendimiento
@@ -66,6 +64,7 @@ class FinishScoreActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             intent.putExtra("EXIT", true)
             startActivity(intent)
+            db.juegoDao().deleteAll()
         } else {
             Toast.makeText(
                 this,
