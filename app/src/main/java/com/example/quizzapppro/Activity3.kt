@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
 import com.example.quizzapppro.bd.*
+import com.muddzdev.styleabletoast.StyleableToast
 
 const val NUMBER_OF_PERFORMANCE = "com.example.quizzapppro.NUMBER_OF_PERFORMANCE"
 const val NUMBER_OF_SCORE = "com.example.quizzapppro.NUMBER_OF_SCORE"
@@ -302,11 +303,7 @@ class Activity3 : AppCompatActivity() {
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             finishQuiz()
         } else {
-            Toast.makeText(
-                this,
-                "Presiona de nuevo para salir",
-                Toast.LENGTH_SHORT
-            ).show()
+            StyleableToast.makeText(this, "Presiona de nuevo para salir", Toast.LENGTH_SHORT, R.style.exitToast).show()
         }
         backPressedTime = System.currentTimeMillis()
     }

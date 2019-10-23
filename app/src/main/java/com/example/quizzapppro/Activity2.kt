@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import com.example.quizzapppro.bd.AppDatabase
 import com.example.quizzapppro.bd.Perfil
+import com.muddzdev.styleabletoast.StyleableToast
 
 
 const val EXTRA_QUESTION_TEXT = "com.example.quizzapppro.EXTRA_QUESTION_TEXT"
@@ -230,10 +231,7 @@ class Activity2 : AppCompatActivity() {
             }
 
             setResult(Activity.RESULT_OK, intent)
-            Toast.makeText(this,
-                "Cambios guardados.",
-                Toast.LENGTH_SHORT
-                ).show()
+            StyleableToast.makeText(this, "Cambios guardados", Toast.LENGTH_SHORT, R.style.saveToast).show()
             db.perfilDao().updatePerfil(perfil)
         }
 

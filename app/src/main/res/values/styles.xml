@@ -8,4 +8,61 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="exitToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#070707</item>
+        <item name="stColorBackground">#fff</item>
+        <item name="stIconStart">@drawable/ic_arrow_back</item>
+        <item name="stRadius">5sp</item>
+    </style>
+
+    <style name="saveToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#070707</item>
+        <item name="stColorBackground">#fff</item>
+        <item name="stIconStart">@drawable/ic_save</item>
+        <item name="stRadius">5sp</item>
+    </style>
+
+    <style name="selectToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#070707</item>
+        <item name="stColorBackground">#fff</item>
+        <item name="stIconStart">@drawable/ic_check</item>
+        <item name="stRadius">5sp</item>
+    </style>
+
+    <style name="deleteToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#070707</item>
+        <item name="stColorBackground">#D7E9203F</item>
+        <item name="stIconStart">@drawable/ic_warning</item>
+        <item name="stRadius">5sp</item>
+    </style>
+
+    <style name="deletedToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#070707</item>
+        <item name="stColorBackground">#fff</item>
+        <item name="stIconStart">@drawable/ic_thumb</item>
+        <item name="stRadius">5sp</item>
+    </style>
+
+    <style name="sameToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#070707</item>
+        <item name="stColorBackground">#fff</item>
+        <item name="stIconStart">@drawable/ic_block</item>
+        <item name="stRadius">5sp</item>
+    </style>
+
+    <style name="avatarToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#070707</item>
+        <item name="stColorBackground">#fff</item>
+        <item name="stIconStart">@drawable/ic_accessibility</item>
+        <item name="stRadius">5sp</item>
+    </style>
+
+
 </resources>

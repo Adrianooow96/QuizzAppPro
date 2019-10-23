@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.core.content.ContextCompat.startActivity
 import com.example.quizzapppro.bd.AppDatabase
 import com.example.quizzapppro.bd.Perfil
+import com.muddzdev.styleabletoast.StyleableToast
 
 class CustomAdapter(private val context : Context, private var profilesArrayList: ArrayList<Perfil>) : BaseAdapter() {
     val db = AppDatabase.getAppDatabase(context)
@@ -65,22 +66,14 @@ class CustomAdapter(private val context : Context, private var profilesArrayList
             val countPerfles : Int = db.perfilDao().countPerfiles()
             if(countPerfles > 1) {
                 db.perfilDao().deletePerfil(db.perfilDao().getPerfilById(profilesArrayList[position].idJugador))
-                Toast.makeText(
-                    context,
-                    "Perfil eliminado.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                StyleableToast.makeText(context, "Perfil eliminado.", Toast.LENGTH_SHORT, R.style.deletedToast).show()
                 profilesArrayList =
                     profilesArrayList.minus(profilesArrayList[position]) as ArrayList<Perfil>
                 notifyDataSetChanged()
             }
             else
             {
-                Toast.makeText(
-                    context,
-                    "No puedes eliminar tu único perfil.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                StyleableToast.makeText(context, "No puedes eliminar tu único perfil.", Toast.LENGTH_SHORT, R.style.deleteToast).show()
             }
         }
 
@@ -96,11 +89,7 @@ class CustomAdapter(private val context : Context, private var profilesArrayList
         holder.btnSelect!!.setOnClickListener {
             var selectedPerfil = db.perfilDao().getPerfilById(profilesArrayList[position].idJugador)
             if(selectedPerfil.status == 1){
-                Toast.makeText(
-                    context,
-                    "Este perfil ya está seleccionado.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                StyleableToast.makeText(context, "Este perfil ya está selecionado.", Toast.LENGTH_SHORT, R.style.selectToast).show()
             }
             else{
                 db.perfilDao().resetStatus()

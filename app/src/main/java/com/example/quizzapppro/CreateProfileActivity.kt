@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.quizzapppro.bd.AppDatabase
 import com.example.quizzapppro.bd.Perfil
 import com.example.quizzapppro.bd.PerfilDao
+import com.muddzdev.styleabletoast.StyleableToast
 import kotlinx.android.synthetic.main.activity_name.*
 
 class CreateProfileActivity : AppCompatActivity() {
@@ -47,18 +48,10 @@ class CreateProfileActivity : AppCompatActivity() {
             var rbId = iconsRadioGroup.getCheckedRadioButtonId()
             var icon = iconsRadioGroup.indexOfChild(findViewById(rbId))
             if(namesList.contains(name)) {
-                Toast.makeText(
-                    this,
-                    "Nombre No válido.",
-                    Toast.LENGTH_LONG
-                ).show()
+                StyleableToast.makeText(this, "Alias en uso", Toast.LENGTH_SHORT, R.style.sameToast).show()
             }
             else if(iconsRadioGroup.getCheckedRadioButtonId() == -1){
-                Toast.makeText(
-                    this,
-                    "Por favor, seleccione un avatar.",
-                    Toast.LENGTH_LONG
-                ).show()
+                StyleableToast.makeText(this, "Seleccione un avatar", Toast.LENGTH_SHORT, R.style.avatarToast).show()
             }
             else if (TextUtils.isEmpty(name)){
                 nombreEditText.error = "Escribe tu alias"
