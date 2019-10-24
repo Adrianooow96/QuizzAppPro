@@ -11,7 +11,9 @@ import com.example.quizzapppro.bd.AppDatabase
 import com.facebook.stetho.Stetho
 import android.R.attr.data
 import android.R.id.edit
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.SharedPreferences
 import com.example.quizzapppro.bd.Perfil
 import com.example.quizzapppro.bd.pregunta
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var options_button : Button
     private lateinit var score_button : Button
     private lateinit var profiles_button : Button
+    private lateinit var perfil: Perfil
+    private var countPerfiles: Int = 0
 
     private lateinit var txtViewHighScore : TextView
     private var highscore : Int = 0
@@ -47,8 +51,8 @@ class MainActivity : AppCompatActivity() {
         val db = AppDatabase.getAppDatabase(this)
         val allPreguntas = db.preguntaDao().getAll()
        // val pr: pregunta = db.preguntaDao().getPregunta(1)
-        val perfil: Perfil = db.perfilDao().getCurrentPerfil()
-        val countPerfiles : Int = db.perfilDao().countPerfiles()
+        perfil = db.perfilDao().getCurrentPerfil()
+        countPerfiles = db.perfilDao().countPerfiles()
 
 
         play_button = findViewById(R.id.play_button)
@@ -59,13 +63,13 @@ class MainActivity : AppCompatActivity() {
         txtViewHighScore = findViewById(R.id.text_view_highscore)
         loadHighscore(db.puntajeDao().getMaxPuntaje())
 
-    if (perfil == null) {
+    if (countPerfiles == 0) {
         play_button.isEnabled = false
         options_button.isEnabled = false
     }
         play_button.setOnClickListener(){
             val intent : Intent = Intent(this, Activity3::class.java)
-            startActivityForResult(intent, REQUEST_CODE_QUIZ)
+            hayJuego(intent, db)
         }
         options_button.setOnClickListener{
             val intent : Intent = Intent(this, Activity2::class.java)
@@ -78,11 +82,25 @@ class MainActivity : AppCompatActivity() {
         profiles_button.setOnClickListener() {
             val intent : Intent = Intent(this, ProfilesActivity::class.java)
             startActivity(intent)
+
         }
 
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        // => Obtener referencia a base de datos basada en librería Room
+        val db = AppDatabase.getAppDatabase(this)
+        countPerfiles = db.perfilDao().countPerfiles()
+        if (countPerfiles == 0) {
+            play_button.isEnabled = false
+            options_button.isEnabled = false
+        }
+        else{
+            play_button.isEnabled = true
+            options_button.isEnabled = true
+        }
+    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -97,6 +115,19 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun hayJuego(intent: Intent, db:AppDatabase){
+        val alertDialog = AlertDialog.Builder(this)
+            .setTitle("Juego en curso")
+            .setMessage("¿Desea continuar el juego en curso?")
+            .setPositiveButton("Sí", DialogInterface.OnClickListener { dialog, which ->
+                startActivity(intent)
+            })
+            .setNegativeButton("No.", DialogInterface.OnClickListener { dialog, which ->
+                db.juegoDao().deleteAll()
+                startActivity(intent)
+            }).show()
     }
 
     private fun loadHighscore(highscore : Int){

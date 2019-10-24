@@ -60,13 +60,4 @@ class ProfilesActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-            finish()
-        val intent : Intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
-        val intent2 : Intent = Intent(this, MainActivity::class.java)
-        startActivity(intent2)
-    }
-
 }

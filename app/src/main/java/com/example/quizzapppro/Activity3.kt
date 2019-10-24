@@ -291,7 +291,6 @@ class Activity3 : AppCompatActivity() {
         }
     }
 
-
     private fun finishQuiz() {
         db.juegoDao().resetActual()
         preguntaActual.esActual = 1
